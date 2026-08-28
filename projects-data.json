@@ -1,0 +1,529 @@
+{
+  "projects": [
+    {
+      "id": "radio-fuego",
+      "slug": "radio-fuego",
+      "title": "Radio Fuego",
+      "logo": "assets/images/projects/radio-fuego/logo.png",
+      "brandColor": "rgba(220, 173, 72, 1)", 
+      "excerpt": "Un project phare, une nouvelle radio lancée à l'échelle nationale et internationale portée par des grands noms du secteur.\nPrésent depuis le 1er jour (1 an), j'ai pu accompagner le projet sur la création de son univers visuel et vidéos.",
+      "highlights": [
+        {
+      "label": "Production vidéo",
+      "text": "• Réalisation de tous les visuels et vidéos pour les réseaux sociaux (Reels, TikTok, Shorts, posts vidéo) selon les briefs fournis par le Client\n• Production de vidéos B2B (présentations institutionnelles, démos commerciales, pitchs partenaires)\n• Réalisation de vidéos diverses selon les besoins du Client (événementiels, promotionnels, capsules éditoriales, etc.)\n• Création de contenus UGC (incarné et en voix off)\n• Montage, étalonnage, mixage sonore et export dans les formats adaptés à chaque support"
+    },
+    {
+      "label": "Identité visuelle et création graphique",
+      "text": "• Conception et évolution de l'identité visuelle de la marque Radio Fuego et de chacune de ses émissions. (chartes graphiques, logotypes, systèmes visuels)\n• Création de l'animation du logo Radio Fuego.\n• Création de visuels PLV (publicité sur lieu de vente) et supports de communication imprimés ou digitaux\n• Création de visuels promotionnels pour du street marketing\n• Création de visuels statiques et animés pour les réseaux sociaux (posts, stories, covers, vignettes, etc.)\n• Adaptation des créations aux différentes plateformes : Instagram, Facebook, LinkedIn, YouTube, X (Twitter), TikTok"
+    },
+    {
+      "label": "Événementiel",
+      "text": "• Participation à la conceptualisation et à l'organisation en 3 mois du Viva Fuego Festival (événement de lancement officiel de Radio Fuego réunissant plus de 3000 personnes à la Fiducial Asteria, Lyon-Décines)\n• Conception de l'univers visuel global et coordination de la communication digitale associée (affiches, PLV, visuels, vidéos)\n• Création des supports visuels et vidéo du show sur scène, incluant la mise en scène globale et le fil conducteur"
+    },
+    {
+      "label": "Stratégie et conseil",
+      "text": "• Pilotage de la stratégie de contenu et de communication des réseaux sociaux\n• Management de l'équipe communication\n• Conception de mécaniques de jeux-concours (mécaniques, parcours utilisateur, visuels associés)\n• Recommandations créatives et éditoriales en lien avec les tendances visuelles et vidéo"
+    }
+      ],
+
+      "gallery": [
+  {
+    "type": "link",
+    "url": "https://drive.google.com/file/d/17Z5v3CXR-EDjL83Sqri6SQE2Ls7HmaZi/view?usp=share_link",
+    "thumbnail": "assets/images/projects/radio-fuego/présentation-thumb.png",
+    "title": "Vidéo de présentation"
+  },
+  {
+    "type": "link",
+    "url": "https://www.instagram.com/p/DXaBWvTAiNv/",
+    "thumbnail": "assets/images/projects/radio-fuego/appliRF-thumb.png",
+    "title": "Application Radio Fuego"
+  },
+  {
+    "type": "link",
+    "url": "https://www.instagram.com/reels/DWOXwUWgVDh/",
+    "thumbnail": "assets/images/projects/radio-fuego/radioplayer.png",
+    "title": "Publicité Radio Player"
+  },
+  {
+    "type": "link",
+    "url": "https://www.instagram.com/reels/DVapYsbABc9/",
+    "thumbnail": "assets/images/projects/radio-fuego/auditeurs-thumb.png",
+    "title": "Vidéo incarnée pour les auditeurs"
+  },
+  {
+    "type": "link",
+    "url": "https://www.instagram.com/reel/DWOfoaiNQB3/",
+    "thumbnail": "assets/images/projects/radio-fuego/badbunny.png",
+    "title": "Concours Bad Bunny"
+  },
+  {
+    "type": "link",
+    "url": "https://www.instagram.com/reel/DVprQ_-k2yT/",
+    "thumbnail": "assets/images/projects/radio-fuego/RS-PR.png",
+    "title": "Concours Romeo Santos & Prince Royce"
+  },
+  {
+    "type": "link",
+    "url": "https://www.instagram.com/reel/DVFoHitDiA-/",
+    "thumbnail": "assets/images/projects/radio-fuego/LIF.png",
+    "title": "Concours Little Italy Festival"
+  },
+  {
+    "type": "link",
+    "url": "https://www.instagram.com/reel/DU30EkHiSuG/",
+    "thumbnail": "assets/images/projects/radio-fuego/Barcelona-Mix.png",
+    "title": "Présentation Barcelona Mix"
+  },
+  {
+    "type": "link",
+    "url": "https://www.instagram.com/reel/DUh9Am6gU3I/",
+    "thumbnail": "assets/images/projects/radio-fuego/rosalia.png",
+    "title": "Concours Rosalía"
+  },
+  {
+    "type": "link",
+    "url": "https://www.instagram.com/reel/DUPtqTkDd5r/",
+    "thumbnail": "assets/images/projects/radio-fuego/calema.png",
+    "title": "Concours Calema"
+  },
+  {
+    "type": "link",
+    "url": "https://www.instagram.com/reel/DTpW6l8DdCc/",
+    "thumbnail": "assets/images/projects/radio-fuego/Fuego-Zap.png",
+    "title": "Fuego Zap"
+  },
+  {
+    "type": "link",
+    "url": "https://radiofuego.fr",
+    "title": "Site de Radio Fuego"
+  }
+]
+    },
+    
+    {
+      "id": "festival-europe2",
+      "slug": "festival-europe2",
+      "title": "Festival Europe 2",
+      "logo": "assets/images/projects/festival-europe2/logoE2Festival.png",
+      "brandColor": "rgba(220, 173, 72, 1)", 
+      "excerpt": "En Juin 2025, pendant 3 jours, les artistes les plus emblématiques de la scène pop se sont produits pour les auditeurs de la station : Bob Sinclar, Santa, Superbus, Lucky Love, Marine…\nCet évènement exceptionnel est venu célébrer le nouvel Europe 2 et son format Pop.",
+      "highlights": [
+  {
+    "label": "Production vidéo",
+    "text": "• Réalisation de la vidéo d'introduction du show conçue pour immerger le public dès l'ouverture\n• Conception et production des capsules vidéo intermédiaires diffusées lors des transitions entre les différentes prestations scéniques\n• Montage, habillage graphique et export des fichiers vidéo dans les formats techniques adaptés aux écrans de diffusion sur scène."
+  },
+  {
+    "label": "Pré-production et scénographie",
+    "text": "• Participation active à la réflexion et à la conception de la scénographie globale de l'événement."
+  }
+],
+"gallery": [
+  {
+    "type": "link",
+    "url": "https://drive.google.com/file/d/1yRK9QjtWhqnvqHcIFiW7pYKPhdwr0Bmz/view?usp=share_link",
+    "thumbnail": "assets/images/projects/festival-europe2/INTRO-FINAL-thumb.png",
+    "title": "Vidéo d'introduction du show"
+  },
+  {
+    "type": "link",
+    "url": "https://drive.google.com/file/d/1_nu8PVW1dXJt_MMxGN8H46qWA9hPrvhJ/view?usp=share_link",
+    "vertical": true,
+    "thumbnail": "assets/images/projects/festival-europe2/intro-salle-thumb.png",
+    "title": "Vidéo d'introduction depuis la salle"
+  },
+  {
+    "type": "link",
+    "url": "https://drive.google.com/file/d/1uahKNgzd8nMAjVylkYweFd0TAqhUHfeQ/view?usp=share_link",
+    "thumbnail": "assets/images/projects/festival-europe2/Playlist-Recap-thumb.png",
+    "title": "Playlist récap de fin"
+  }
+  ]
+
+    },
+    {
+      "id": "bernadette-lourdes",
+      "slug": "bernadette-lourdes",
+      "title": "Bernadette de Lourdes (Italie)",
+      "logo": "assets/images/projects/bernadette-de-lourdes-IT/BDL-logo-carte.png",
+      "brandColor": "rgba(220, 173, 72, 1)", 
+      "excerpt": "Après un succès dans toute la France, la comédie musicale Bernadette de Lourdes s’exporte avec une version italienne qui a débuté sa tournée à Rome le 16 janvier 2025 à l'Auditorium Conciliazione, près du Vatican.",
+      "highlights": [
+  {
+    "label": "CAPTATION & RÉALISATION SUR SITE",
+    "text": "• Captation live : Tournage sur place du spectacle pour immortaliser la mise en scène et la performance des artistes en conditions réelles.\n• Couverture événementielle : Réalisation d'un micro-trottoir en italien lors de la grande Première afin de capturer l'émotion et les réactions à chaud du public."
+  },
+  {
+    "label": "POST-PRODUCTION & CONTENU MULTICANAL",
+    "text": "• Campagne digitale (Marché Italien) : Conception et montage de teasers et vidéos promotionnelles en français et en italien.\n• Production Broadcast (TV) : Réalisation et montage d'un film promotionnel, mis aux normes et diffusé sur la chaîne de télévision italienne Rai."
+  }
+],
+      "gallery": [
+        {
+          "type": "link",
+          "url": "https://drive.google.com/file/d/1sswXKSdS1jwClGkB9HFQsSNrk08y6VtV/view?usp=share_link",
+          "thumbnail": "assets/images/projects/bernadette-de-lourdes-IT/makingof-trailer-thumb.png",
+          "title": "Making Of du Trailer"
+        },
+        {
+          "type": "link",
+          "url": "https://drive.google.com/file/d/1Yp5LMVYsdrNRdQPtyt9XhhudPlsZD19a/view?usp=share_link",
+          "thumbnail": "assets/images/projects/bernadette-de-lourdes-IT/microtrottoir.png",
+          "title": "Micro-trottoir première (Vostfr)"
+        },
+        {
+          "type": "link",
+          "url": "https://drive.google.com/file/d/1IjLLI7GscHdS626XWebuizha33p5e2fV/view?usp=share_link",
+          "vertical": true,
+          "thumbnail": "assets/images/projects/bernadette-de-lourdes-IT/teaser-artistes.png",
+          "title": "Teaser artistes"
+        },
+        {
+          "type": "link",
+          "url": "https://drive.google.com/file/d/1vqkP3OhSZyXRyze6uEKA7Ew2GYDyCXwo/view?usp=share_link",
+          "vertical": true,
+          "thumbnail": "assets/images/projects/bernadette-de-lourdes-IT/thumb-première.png",
+          "title": "Recap Première Italienne (FR)"
+        },
+        {
+          "type": "link",
+          "url": "https://drive.google.com/file/d/1IAgSGs71qarZzbQIW1-EoSqMGDb3vsui/view?usp=share_link",
+          "vertical": true,
+          "thumbnail": "assets/images/projects/bernadette-de-lourdes-IT/pré-première.png",
+          "title": "Captation avant la première"
+        }
+      ]
+    },
+    {
+      "id": "pieces-jaunes",
+      "slug": "pieces-jaunes",
+      "title": "Pièces Jaunes : Les P'tits Soleils",
+      "logo": "assets/images/projects/pièces-jaunes/pieces-jaunes.png",
+      "brandColor": "rgba(220, 173, 72, 1)", 
+      "excerpt": "« Les P'tits Soleils » est l'hymne officiel de l'opération des Pièces Jaunes lancé en janvier 2025. Ce morceau caritatif réunit 28 jeunes artistes de la nouvelle scène musicale (dont Joseph Kamel, Héléna, Mentissa et Calema) pour soutenir la Fondation des Hôpitaux au profit des enfants et adolescents hospitalisés.",
+      "highlights": [
+        {
+      "label": "Pré-production",
+      "text": "• Participation aux réunions préparatoires avec les talents pour définir les besoins et le déroulé de l'opération."
+    },
+    {
+      "label": "Régie & Logistique",
+      "text": "• Accompagnement des équipes le jour J pour assurer la fluidité et le bon déroulement de la journée de tournage."
+    },
+    {
+      "label": "Création de contenu",
+      "text": "• Captation vidéo en immersion dans les coulisses pour documenter l'envers du décor et l'ambiance du plateau.\n • Mise en valeur de l'engagement des artistes et des équipes à travers des images authentiques et exclusives."
+    }
+      ],
+
+      "gallery": [
+        {
+          "type": "link",
+          "url": "https://www.youtube.com/watch?v=mT8PNX4RL_w",
+          "title": "Les P'tits Soleils (clip officiel)"
+        },
+        {
+          "type": "link",
+          "url": "https://drive.google.com/file/d/1qVgl1C6BkwfnNiK1tE8Wfbk527vcdW_N/view?usp=share_link",
+          "vertical": true,
+          "thumbnail": "assets/images/projects/pièces-jaunes/pj-thumb.png",
+          "title": "Making Of Clip"
+        }
+      ]
+    },
+    {
+  "id": "viva-fuego",
+  "slug": "viva-fuego",
+  "title": "Viva Fuego Festival",
+  "logo": "assets/images/projects/viva-fuego-festival/affiche-jaune.png",
+  "brandColor": "rgba(220, 173, 72, 1)", 
+  "excerpt": "Le 17 Juin 2026, Radio Fuego a organisé son événement de lancement officiel réunissant plus de 3000 personnes à la Fiducial Asteria, Lyon-Décines composé d'artistes, de danseurs et d'animations.",
+  "highlights": [
+    {
+      "label": "Pré-production et scénographie",
+      "text": "• Participation à la conceptualisation et à l'organisation en 3 mois du Viva Fuego Festival.\n• Participation à la mise en scène globale et au fil conducteur de la soirée."
+    },
+    {
+      "label": "Production & Motion Design",
+      "text": "• Création de chaque supports visuels et vidéo du show sur scène pour chaque artiste et pour chaque interlude vidéo.\n• Création des affiches de la soirée et supports de communication.\n• Création des vidéos scénarisées diffusées pendant l’événement sur les écrans géants.\n• Création du logo du festival et de son animation en motion design.\n• Supervision de l’équipe de création pour les vidéos de mise en scène le jour J."
+    },
+    {
+      "label": "Création de contenu",
+      "text": "• Création de l'aftermovie de la soirée.\n• Montage des interviews des artistes réalisés pendant la soirée\n• Suppervision de l'équipe communication pour la diffusion et la création de contenus le jour J.\n• Supervision de l’équipe communication, du plan de communication et des différentes activations réalisées dans le cadre de la promotion de l’évènement."
+    }
+  ],
+  "gallery": [
+    {
+      "type": "image",
+      "src": "assets/images/projects/viva-fuego-festival/afficheVVF.png",
+      "title": "Affiche du Viva Fuego Festival"
+    },
+    {
+      "type": "image",
+      "src": "assets/images/projects/viva-fuego-festival/Fresque-VVF-artistes.png",
+      "title": "Affiche avec les artistes"
+    },
+    {
+      "type": "link",
+      "url": "https://www.instagram.com/p/DZDSA0DN05a/?hl=fr",
+      "thumbnail": "assets/images/projects/viva-fuego-festival/trailer-thumb.png",
+      "title": "Trailer du viva fuego festival"
+    },
+    {
+      "type": "link",
+      "url": "https://drive.google.com/file/d/131PWcGM9Ja5Cxu08flmDuzlW1DwhESML/view?usp=share_link",
+      "thumbnail": "assets/images/projects/viva-fuego-festival/intro1-thumb.png",
+      "title": "Vidéo d'ouverture de la 1ère partie"
+    },
+    {
+      "type": "link",
+      "url": "https://drive.google.com/file/d/1scxpCGph-MWH4jbvR7pu4by7nOdytTi3/view?usp=share_link",
+      "thumbnail": "assets/images/projects/viva-fuego-festival/intro2-thumb.png",
+      "title": "Vidéo d'ouverture de la 2e partie"
+    },
+    {
+      "type": "link",
+      "url": "https://drive.google.com/file/d/1I2PKofIzUwpT7Dd8em6CjpUiOahWXGnu/view?usp=share_link",
+      "thumbnail": "assets/images/projects/viva-fuego-festival/WW-thumb.png",
+      "title": "Vidéo d'hommage à Willy William"
+    },
+    {
+      "type": "link",
+      "url": "https://drive.google.com/file/d/1kkcwy0KpCq2EUeevCmwdiR__LAsVrnhH/view?usp=share_link",
+      "thumbnail": "assets/images/projects/viva-fuego-festival/DAB+-thumb.png",
+      "title": "Interlude Promo vidéo"
+    },
+    {
+      "type": "link",
+      "url": "https://www.instagram.com/p/DZvKd7ZNVnV/",
+      "thumbnail": "assets/images/projects/viva-fuego-festival/aftermovie-thumb.png",
+      "title": "After-movie du Viva Fuego Festival"
+    },
+    {
+      "type": "link",
+      "url": "https://drive.google.com/file/d/1TETQqzoEYM5yirwOdsFV74Po7GDvNFJE/view?usp=share_link",
+      "thumbnail": "assets/images/projects/viva-fuego-festival/thumb-video-artiste.png",
+      "title": "Exemple de vidéo indivuel artiste jour J"
+    },
+    {
+      "type": "image",
+      "src": "assets/images/projects/viva-fuego-festival/DR Yaro.png",
+      "title": "Exemple de visuel individuel artiste"
+    }
+    
+  ]
+},
+   {
+  "id": "david-ban",
+  "slug": "david-ban",
+  "title": "David Bán Big Party",
+  "logo": "assets/images/projects/David-Ban-BigParty/Logo-carte.png",
+  "brandColor": "rgba(220, 173, 72, 1)", 
+  "excerpt": "Le chanteur et comédien français David Bán a sorti en 2025 un nouvel album intitulé Big Party. Un projet qu’il a défendu pendant une tournée « Big Party » en Chine. Des représentations pour la tournée organisées notamment à Shanghai et Chongqing en Chine.",
+  "highlights": [
+    {
+      "label": "PRODUCTION VIDÉO & SCÉNOGRAPHIE",
+      "text": "• Montage et réalisation des séquences d'ouverture du concert.\n• Réalisation de l'intégralité des vidéos habillant la scène pendant le show aux dimensions de plusieurs édrans géants."
+    },
+    {
+      "label": "Motion Design",
+      "text": "• Vidéos d'accueil : Création des animations graphiques diffusées lors de l'entrée du public dans la salle."
+    }
+  ],
+  "gallery": [
+    {
+      "type": "link",
+      "url": "https://www.instagram.com/reels/DS9PNnTiqkC/",
+      "thumbnail": "assets/images/projects/David-Ban-BigParty/thumb-aftermovie.png",
+      "title": "After Movie Concert à Chongqing"
+    }
+  ]
+},
+{
+      "id": "pop-session-europe2",
+      "slug": "pop-session-europe2",
+      "title": "Pop Sessions Europe 2",
+      "logo": "assets/images/projects/pop-session/logo-pop-session.png",
+      "brandColor": "rgba(220, 173, 72, 1)", 
+      "excerpt": "Pop Session est une émission musicale mettant en scène un concert privé exclusifs réservés à un petit comité d'auditeurs organisé conjointement par la station de radio Europe 2 et la chaîne de télévision CSTAR.",
+      "highlights": [
+        {
+      "label": "CONCEPTION & COMMUNICATION",
+      "text": "• Scénographie : Participation à la conception créative et à l'élaboration de la scénographie globale de l'émission.\n• Stratégie de communication : Définition des objectifs et mise en place de la stratégie globale pour promouvoir le programme."
+    },
+    {
+      "label": "PRODUCTION VIDÉO",
+      "text": "• Réalisation Making-of : Tournage et montage de vidéos immersives retraçant les coulisses de plusieurs sessions de tournage."
+    }
+      ],
+
+      "gallery": [
+        {
+          "type": "link",
+          "url": "https://drive.google.com/file/d/1V_7EFpLMwcQefnSw1rQP9mNPWWuf76C0/view?usp=share_link",
+          "vertical": true,
+          "thumbnail": "assets/images/projects/pop-session/popsession-thumb.png",
+          "title": "Vidéo des coulisses"
+        },
+        {
+          "type": "link",
+          "url": "https://drive.google.com/file/d/13zO15nWiM4BREHABEgw21s6-opLd5lVq/view?usp=share_link",
+          "thumbnail": "assets/images/projects/pop-session/bestof-popsession-thumb.png",
+          "title": "Best of Emission Pop Session"
+        }
+      ]
+    },
+    {
+      "id": "Loop",
+      "slug": "Loop",
+      "title": "Loop (Court-métrage)",
+      "logo": "assets/images/projects/loop/Loop-long-affiche.png",
+      "brandColor": "rgba(220, 173, 72, 1)", 
+      "excerpt": "Après avoir remporté le prix du public du Festival du cinéma de Taverny, Elias Ban se plonge dans l’écriture de son 4e court-métrage : Loop.\n Pensé en 2 parties, ce court métrage explore la psyché d’un personnage et les conséquences de certains choix.\n Synopsis : Eliott, un jeune homme dans la vingtaine, est soudain confronté à des événements inexplicables qui bouleversent son quotidien. Pour s’en sortir, il devra affronter ses démons intérieurs.",
+      "highlights": [
+        {
+      "label": "RÉALISATION & DIRECTION ARTISTIQUE",
+      "text": "• Écriture & Scénario : Conception de l'histoire et écriture de ce court-métrage en deux parties.\n• Mise en scène : Direction artistique et réalisation globale du projet de sa conception à sa concrétisation."
+    },
+    {
+      "label": "PRODUCTION & TOURNAGE",
+      "text": "• Captation : Prises de vues et tournage de l'ensemble des séquences pour les deux parties du film.\n • Interprétation : Double casquette de réalisateur et d'acteur principal devant la caméra."
+    },
+    {
+      "label": "POST-PRODUCTION",
+      "text": "• Montage & VFX : Dérushage, montage et intégration des effets visuels (VFX).\n • Habillage visuel & Sonore : Étalonnage , mixage sonore."
+    }
+      ],
+
+      "gallery": [
+        {
+          "type": "link",
+          "url": "https://www.youtube.com/watch?v=q5kT0Mk8tY8",
+          "title": "Loop (Partie 1)"
+        },
+        {
+          "type": "link",
+          "url": "https://www.youtube.com/watch?v=naqOvPMb4J8",
+          "title": "Loop (Partie 2)"
+        },
+        {
+          "type": "link",
+          "url": "https://www.instagram.com/p/DO1JN1gCLJ3/?img_index=1",
+          "thumbnail": "assets/images/projects/loop/Affiche-BA.png",
+          "title": "Bande Annonce Loop"
+        },
+        {
+          "type": "link",
+          "url": "https://www.instagram.com/p/DPLrPMPCGXs/",
+          "thumbnail": "assets/images/projects/loop/thumb-BA2.png",
+          "title": "Bande Annonce Loop 2"
+        }
+      ]
+    },
+    {
+      "id": "les-mots-bleus",
+      "slug": "les-mots-bleus",
+      "title": "Les mots bleus (clip)",
+      "logo": "assets/images/projects/les-mots-bleus/les-mots-bleus-thumb2.png",
+      "brandColor": "rgba(220, 173, 72, 1)", 
+      "excerpt": "En période de confinement, pour rendre hommage au chanteur Christophe en 2020, David Bán créé un cover de sa chanson \"Les Mots Bleus\" dont Elias Ban fera le clip en 48h.",
+      "highlights": [
+        {
+      "label": "RÉALISATION & DIRECTION ARTISTIQUE",
+      "text": "• Mise en scène et réalisation du clip.\n• Captation : Prises de vues et tournage de l'ensemble des séquences du clip."
+    },
+    {
+      "label": "POST-PRODUCTION",
+      "text": "• Montage & VFX : Dérushage, montage, étalonnage et intégration des effets visuels (VFX)."
+    }
+      ],
+
+      "gallery": [
+        {
+          "type": "link",
+          "url": "https://www.youtube.com/watch?v=7TnYLTrAeFI",
+          "title": "Les mots bleus (COVER) - DAVID BÁN"
+        }
+      ]
+    },
+    {
+      "id": "bonjour-ivresse",
+      "slug": "bonjour-ivresse",
+      "title": "Bonjour Ivresse (trailer)",
+      "logo": "assets/images/projects/bonjour-ivresse/logo-bonjour-ivresse.png",
+      "brandColor": "rgba(220, 173, 72, 1)", 
+      "excerpt": "Réalisation d'un teaser diffusé sur M6 (Absolument Star) et dans les rues parisiennes pour annoncer la prolongation de la pièce de théâtre \"Bonjour Ivresse\".",
+      "highlights": [
+    {
+      "label": "POST-PRODUCTION",
+      "text": "• Montage & VFX : Reception de rush, dérushage, montage, étalonnage et intégration des effets visuels (VFX)."
+    }
+      ],
+
+      "gallery": [
+        {
+          "type": "link",
+          "url": "https://www.youtube.com/watch?v=vw0KmLs-kBg&list=PLywvh2D8h9bTRa0RglXOEdy0ZK1xuSp4D&index=2",
+          "title": "Teaser Prolongation"
+        },
+        {
+          "type": "link",
+          "url": "https://drive.google.com/file/d/1m5EHsRr8LHhAKuuO11i4bfB120CQeMY3/view?usp=share_link",
+          "thumbnail": "assets/images/projects/bonjour-ivresse/thumb-M6.png",
+          "title": "Diffusion M6 (Absolument Star)"
+        }
+      ]
+    },
+    {
+      "id": "little-italy-festival",
+      "slug": "little-italy-festival",
+      "title": "Little Italy Festival",
+      "logo": "assets/images/projects/little-italy-festival/LIF-logo.png",
+      "brandColor": "rgba(220, 173, 72, 1)", 
+      "excerpt": "Réalisation d'un teaser diffusé sur M6 (Absolument Star) et dans les rues parisiennes pour annoncer la prolongation de la pièce de théâtre \"Bonjour Ivresse\".",
+      "highlights": [
+    {
+      "label": "POST-PRODUCTION",
+      "text": "• Montage d'une vidéo de présentation du festival diffusé en salle de spectacle en français et en italien.\n• Montage d'une vidéo promotionnelle diffusée sur le compte instagram de Julien Lieb.\n• Montage d'une vidéo en B2B (Business to Business) pour rechercher des partenaires."
+    }
+      ],
+
+      "gallery": [
+        {
+          "type": "link",
+          "url": "https://drive.google.com/file/d/1jK-O4-qYI1vKgOFadFMWMqXMq-f-W3gs/view?usp=share_link",
+          "thumbnail": "assets/images/projects/little-italy-festival/thumb-teaser.png",
+          "title": "Teaser diffusé en salle de spectacle"
+        },
+        {
+          "type": "link",
+          "url": "https://www.instagram.com/reels/DSK9dgrjMG9/",
+          "thumbnail": "assets/images/projects/little-italy-festival/julien-lieb.png",
+          "title": "Julien Lieb au Little Italy Festival"
+        }
+      ]
+    },
+{
+      "id": "wereal",
+      "slug": "wereal",
+      "title": "WeReal",
+      "logo": "assets/images/projects/wereal/WR-logo.png",
+      "brandColor": "rgba(220, 173, 72, 1)", 
+      "excerpt": "L'agence de Production WeReal basée à Nantes a réalisé un film promotionnel pour mettre en avant le Restaurant Goguette à Nantes.",
+      "highlights": [
+    {
+      "label": "PRODUCTION",
+      "text": "• Aide au tournage d'un film promotionnel promotionnelle réalisée par WeReal.\n• Prise de vidéos pour le making of du tournage."
+    }
+      ],
+      "gallery": [
+        {
+          "type": "link",
+          "url": "https://www.instagram.com/reel/C--l02wMh8v/?hl=fr",
+          "thumbnail": "assets/images/projects/wereal/thumb-wereal.png",
+          "title": "Film Promotionnel"
+        }
+      ]
+    }
+  ]
+}

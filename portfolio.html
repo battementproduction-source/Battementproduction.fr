@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nos créations — Battement Production</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  .page-hero { padding: calc(var(--nav-height) + 4rem) var(--gutter) 3rem; text-align: center; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin-bottom: 5rem; }
+  .card {
+    aspect-ratio: 4/3; border-radius: var(--radius-card); border: var(--btn-border-width) solid var(--color-white);
+    overflow: hidden; position: relative;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(255, 255, 255, 0.03);
+    text-decoration: none;
+  }
+  .card img { width: 100%; height: 100%; object-fit: cover; }
+  .portfolio-placeholder {
+    font-weight: 700; color: var(--color-title-cream); font-size: clamp(1rem, 0.85rem + 0.6vw, 1.3rem); text-transform: uppercase;
+  }
+  .card-overlay {
+    position: absolute; inset: 0; background: rgba(10,9,4,0.85);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; 
+    color: var(--color-title-cream); text-align: center;
+    font-weight: 800; text-transform: uppercase; font-size: clamp(0.9rem, 0.8rem + 0.4vw, 1.1rem);
+    opacity: 0; transition: opacity 0.3s ease;
+  }
+
+  /* Le sous-texte automatique magique ✨ */
+  .card-overlay::after {
+    content: "Cliquer pour en savoir plus";
+    display: block;
+    font-weight: 400; 
+    font-size: 0.85rem; 
+    text-transform: none; 
+    margin-top: -0.2rem; 
+    opacity: 1;
+    color: var(--color-script-gold);
+  }
+  
+  .card:hover .card-overlay { opacity: 1; }
+  @media (max-width: 900px) { .grid { grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+  <div class="toolbar-wrap">
+    <nav class="toolbar">
+      <a href="index.html" class="toolbar-logo"><img src="assets/images/Logo-vertical.png" alt="Battement Production"></a>
+      <div class="toolbar-links">
+        <a href="index.html#description">À propos</a>
+        <a href="index.html#activites">Nos activités</a>
+        <a href="#" data-decouvrir>Découvrir l'univers</a>
+        <a href="portfolio.html">Nos créations</a>
+      </div>
+      <a href="index.html#contact" class="btn">Commençons à créer</a>
+      <button class="toolbar-burger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+
+  <div class="mobile-nav">
+    <a href="index.html#description">À propos</a>
+    <a href="index.html#activites">Nos activités</a>
+    <a href="#" data-decouvrir>Découvrir l'univers</a>
+    <a href="portfolio.html">Nos créations</a>
+    <a href="index.html#contact" class="btn">Commençons à créer</a>
+  </div>
+
+  <section class="page-hero">
+    <div class="container">
+      <h2>Nos créations</h2>
+      <span class="script-accent">le portfolio complet</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="grid">
+        <!-- ⚠️ Placeholders en attendant tes vraies vignettes projets -->
+        <a href="project.html?id=radio-fuego" class="card hover-lift"><img src="assets/images/projects/radio-fuego/logo.png" alt="Miniature Radio Fuego"><div class="card-overlay">Radio Fuego</div></a>
+        <a href="project.html?id=festival-europe2" class="card hover-lift"><img src="assets/images/projects/festival-europe2/logoE2Festival.png"img><div class="card-overlay">Festival Europe 2</div></a>
+        <a href="project.html?id=viva-fuego" class="card hover-lift"><img src="assets/images/projects/viva-fuego-festival/affiche-jaune.png"img><div class="card-overlay">Viva Fuego Festival</div></a>
+        <a href="project.html?id=pieces-jaunes" class="card hover-lift"><img src="assets/images/projects/pièces-jaunes/pieces-jaunes.png"img><div class="card-overlay">Pièces Jaunes</div></a>
+        <a href="project.html?id=bernadette-lourdes" class="card hover-lift"><img src="assets/images/projects/bernadette-de-lourdes-IT/BDL-logo.png"img><div class="card-overlay">Bernadette de Lourdes (Italie)</div></a>
+        <a href="project.html?id=david-ban" class="card hover-lift"><img src="assets/images/projects/David-Ban-BigParty/Affiche-David.png"img><div class="card-overlay">David Bán Big Party</div></a>
+        <a href="project.html?id=pop-session-europe2" class="card hover-lift"><img src="assets/images/projects/pop-session/pop-session.png"img><div class="card-overlay">Pop Session Europe 2</div></a>
+        <a href="project.html?id=Loop" class="card hover-lift"><img src="assets/images/projects/loop/Loop-long-affiche.png"img><div class="card-overlay">Loop</div></a>
+        <a href="project.html?id=les-mots-bleus" class="card hover-lift"><img src="assets/images/projects/les-mots-bleus/les-mots-bleus-thumb2.png"img><div class="card-overlay">Les mots bleus</div></a>
+        <a href="project.html?id=bonjour-ivresse" class="card hover-lift"><img src="assets/images/projects/bonjour-ivresse/logo-bonjour-ivresse.png"img><div class="card-overlay">Bonjour Ivresse</div></a>
+        <a href="project.html?id=little-italy-festival" class="card hover-lift"><img src="assets/images/projects/little-italy-festival/LIF-logo.png"img><div class="card-overlay">Little Italy Festival</div></a>
+        <a href="project.html?id=wereal" class="card hover-lift"><img src="assets/images/projects/wereal/WR-logo.png"img><div class="card-overlay">WeReal</div></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="index.html#top" class="footer-brand">
+      <img src="assets/images/Logo-vertical.png" alt="Battement Production">
+    </a>
+
+    <div class="footer-center">
+      <div class="footer-links">
+        <a href="index.html#description">À propos</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="mentions.html">Mentions légales</a>
+      </div>
+      <div class="footer-infos">
+        <span>&copy; 2026 Elias Ban (Battement Production) — SIRET 99189218300013</span>
+        <span>Paris (75) · Île-de-France · 06 20 61 58 66</span>
+      </div>
+    </div>
+
+    <div class="footer-socials">
+      <a href="https://www.linkedin.com/in/elias-ban/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 3A2 2 0 0121 5v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2zM8.34 18v-7.67H5.67V18zM7 9.24a1.56 1.56 0 100-3.12 1.56 1.56 0 000 3.12zM18.34 18v-4.2c0-2.25-1.2-3.3-2.8-3.3a2.4 2.4 0 00-2.18 1.2v-1.03H10.7c.03.7 0 7.33 0 7.33h2.66v-4.1c0-.22 0-.44.08-.6.19-.44.6-.9 1.3-.9.92 0 1.3.7 1.3 1.72V18z"/></svg></a>
+      <a href="https://www.instagram.com/ze_elias_ban/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3 0 4.1.06 1.1.05 1.85.23 2.5.48a5 5 0 011.8 1.18 5 5 0 011.19 1.8c.25.66.42 1.4.47 2.5.06 1.1.06 1.45.06 4.1s0 3-.06 4.1c-.05 1.1-.23 1.85-.48 2.5a5 5 0 01-1.18 1.8 5 5 0 01-1.8 1.19c-.66.25-1.4.42-2.5.47-1.1.06-1.45.06-4.1.06s-3 0-4.1-.06c-1.1-.05-1.85-.23-2.5-.48a5 5 0 01-1.8-1.18 5 5 0 01-1.19-1.8c-.25-.66-.42-1.4-.47-2.5C2 15 2 14.7 2 12s0-3 .06-4.1c.05-1.1.23-1.85.48-2.5a5 5 0 011.18-1.8A5 5 0 015.5 2.4c.66-.25 1.4-.42 2.5-.47C9.1 2 9.4 2 12 2zm0 5a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm5.3-8.4a1.2 1.2 0 100-2.4 1.2 1.2 0 000 2.4z"/></svg></a>
+      <a href="https://www.facebook.com/elias.ban.79/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0022 12z"/></svg></a>
+    </div>
+  </footer>
+
+  <!-- Modale vidéo -->
+  <div class="video-modal" data-video-modal>
+    <button class="video-modal-close" aria-label="Fermer">&times;</button>
+    <div class="video-modal-backdrop"></div>
+    <div class="video-modal-container"></div>
+  </div>
+
+  <!-- Script JavaScript -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

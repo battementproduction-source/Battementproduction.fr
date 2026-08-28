@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battement Production — L'émotion au cœur de la création</title>
+<meta name="description" content="Battement Production conçoit et produit des contenus vidéo et visuels pour les marques, entreprises, studios et spectacles.">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<style>
+  /* =====================================================================
+     STYLES SPÉCIFIQUES À LA PAGE D'ACCUEIL
+  ===================================================================== */
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative; min-height: 100vh;
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    padding: calc(var(--nav-height) + 3rem) var(--gutter) 4rem;
+    z-index: 10;
+  }
+  .hero-video {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    opacity: 0.8; z-index: 0;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 0% 0%, rgba(0,0,0,0.55) 0%, rgba(25,20,1,0.8) 55%, rgba(43,43,43,0.95) 100%);
+    z-index: 1;
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 1050px; display: flex; flex-direction: column; align-items: center; }
+  .hero-content img.logo-horizontal { width: clamp(320px, 94vw, 1300px); height: auto; margin-bottom: 1.5rem; }
+.hero-tagline { font-weight: 900; font-size: clamp(0.95rem, 0.8rem + 0.5vw, 1.2rem); letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-white); margin-bottom: 2rem; }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+  .hero-rating { margin-top: 1.8rem; display: flex; align-items: center; gap: 0.7rem; font-weight: 900; font-size: clamp(0.9rem, 0.75rem + 0.4vw, 1.1rem); color: var(--color-white); }
+  .hero-rating .stars { color: var(--color-script-gold); letter-spacing: 3px; font-size: clamp(1rem, 0.85rem + 0.4vw, 1.2rem); }
+
+ /* ---------- DESCRIPTION ---------- */
+  #description { min-height: 0vh; }
+  
+  #description .container { 
+    display: grid;
+    grid-template-columns: 0.2fr 1.3fr; /* On copie exactement la grille de la section du dessous */
+    gap: 0rem;
+  }
+  
+  /* On force les 3 éléments de texte à s'empiler dans la 2ème colonne (celle de droite) */
+  #description h2,
+  #description .script-accent,
+  #description p.body-bold {
+    grid-column: 2 / 3;
+  }
+  
+  #description h2 { 
+    text-align: center;
+    line-height: 0.95; 
+    margin-bottom: -0.4em; 
+  }
+  
+  #description .script-accent { 
+    text-align: center;
+    line-height: 0.95; 
+    margin-top: 0.08em; 
+    margin-left: 20rem; /* Ton décalage à droite pour "de la création" */
+  }
+  
+ #description p.body-bold { 
+    text-align: center;
+    margin: 1rem auto 0; 
+    width: clamp(320px, 90vw, 780px);
+  }
+
+  /* Sur téléphone, on remet tout sur 1 seule colonne et on recentre */
+  @media (max-width: 900px) {
+    #description .container { 
+      grid-template-columns: 1fr; 
+    }
+    #description h2,
+    #description .script-accent,
+    #description p.body-bold {
+      grid-column: 1 / 2;
+    }
+    #description .script-accent { 
+      margin-left: 0; 
+    }
+  }
+  
+  
+
+  /* --- Activités — visuel (grille + fil rouge + mots) à gauche, texte à droite --- */
+  .activites-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 0rem;
+    align-items: center;
+  }
+  .activites-visual { position: relative; height: clamp(300px, 36vw, 700px); }
+  .activites-content { padding: 2rem 0; }
+  .activites-content .body-bold { text-align: left; margin-left: 0; max-width: 100%; }
+  .activites-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .activite-card {
+    padding: clamp(1rem, 0.8rem + 0.6vw, 1.4rem);
+    text-align: center;
+    min-height: clamp(85px, 70px + 3vw, 110px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(0.85rem, 0.75rem + 0.3vw, 1rem);
+    line-height: 1.2;
+  }
+  /* Les mots sont positionnés PAR-DESSUS le fil rouge, pas dans le flux du texte */
+  .activite-word {
+    position: absolute;
+    font-family: var(--font-hand);
+    font-size: clamp(1.3rem, 0.9rem + 1.5vw, 2.2rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-hand-yellow);
+  }
+  @media (max-width: 900px) {
+    .activites-layout { grid-template-columns: 1fr; }
+    .activites-visual { height: 380px; }
+    .activites-grid { grid-template-columns: repeat(2, 1fr); }
+    #activites { padding: 3rem 1.5rem; }
+    .activites-content { text-align: center; }
+    .activites-content .body-bold { margin-left: 0; text-align: center; }
+  }
+
+  /* ---------- SERVICE SUR-MESURE ---------- */
+  .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
+  .service-card {
+    position: relative; overflow: hidden;
+    padding: 2rem; text-align: left; align-items: flex-start;
+    min-height: 320px; display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .service-card-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 0; }
+  .service-icon { width: clamp(56px, 40px + 3vw, 88px); height: clamp(56px, 40px + 3vw, 88px); margin: 0; flex-shrink: 0; }
+  .service-meta { font-family: var(--font-helvetica); font-weight: 800; color: var(--color-btn-text); font-size: clamp(1.1rem, 0.9rem + 0.8vw, 1.55rem); text-align: left; line-height: 1.15; }
+  .service-meta .size { display: block; font-size: clamp(0.85rem, 0.7rem + 0.5vw, 1.1rem); margin-top: -0.1rem; }
+  .service-card .btn-dark { font-size: clamp(0.95rem, 0.8rem + 0.5vw, 1.2rem); padding: clamp(1rem, 0.8rem + 0.6vw, 1.35rem) clamp(1.6rem, 1.2rem + 1vw, 2.4rem); }
+  .service-card .btn-dark { align-self: center; }
+  .service-card .rond-fleche { margin: 0 auto; width: 70px; height: 36px; }
+
+  /* Le panneau de description apparaît au SURVOL, par-dessus le contenu de base */
+  .service-card-hover {
+    position: absolute; inset: 0;
+    background: #FBF8EF;
+    color: var(--color-btn-text);
+    display: flex; align-items: center; justify-content: center;
+    padding: clamp(1.2rem, 1rem + 1vw, 2rem);
+    opacity: 0; transition: opacity 0.3s ease;
+    font-weight: 700; font-size: clamp(0.85rem, 0.75rem + 0.3vw, 1.05rem); line-height: 1.3;
+    text-align: center;
+    white-space: pre-line;
+  }
+  .service-card:hover .service-card-hover { opacity: 1; }
+  @media (max-width: 900px) { .service-grid { grid-template-columns: 1fr; } }
+
+  /* ---------- PORTFOLIO ---------- */
+  .portfolio-layout { display: grid; grid-template-columns: 1.4fr 1fr; gap: 3rem; align-items: start; }
+  .portfolio-left-col { display: flex; flex-direction: column; }
+  .portfolio-left-col .script-accent { margin-bottom: 1.6rem; }
+  .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+  .portfolio-card {
+    position: relative; aspect-ratio: 4/3; border-radius: var(--radius-card);
+    border: var(--btn-border-width) solid var(--color-white); overflow: hidden; background: #111;
+  }
+  .portfolio-card img { width: 100%; height: 100%; object-fit: cover; }
+  .portfolio-card-overlay {
+    position: absolute; inset: 0; background: rgba(10,9,4,0.85);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 1rem; opacity: 0; transition: opacity 0.3s ease;
+  }
+  .portfolio-card:hover .portfolio-card-overlay { opacity: 1; }
+  .portfolio-card:hover { box-shadow: var(--glow-gold-strong); transform: translateY(-6px); }
+  .portfolio-card-overlay strong { font-size: clamp(0.9rem, 0.8rem + 0.3vw, 1.1rem); color: var(--color-title-cream); text-transform: uppercase; }
+  .portfolio-card-overlay span { font-size: clamp(0.7rem, 0.65rem + 0.2vw, 0.8rem); color: var(--color-script-gold); margin-top: -0.2rem; }
+  .voir-plus-wrap { grid-column: 1 / -1; text-align: center; margin-top: 1.5rem; }
+  .profile-photo-frame { 
+    position: relative; 
+    border-radius: var(--radius-card); 
+    overflow: hidden; 
+    border: 7px solid var(--color-white); 
+    aspect-ratio: 3/4; 
+    transform: scale(0.9); /* Le chiffre 1 = 100%. Donc 0.8 = 80% de sa taille */
+    transform-origin: center right; /* Permet de réduire la photo en la gardant alignée vers la droite */
+}
+  .profile-photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+  .profile-name {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 1.6rem; text-align: center;
+    background: linear-gradient(0deg, rgba(0,0,0,0.8), transparent);
+  }
+  .profile-name .first,
+  .profile-name .last {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(1.8rem, 1.1rem + 2vw, 3rem);
+    line-height: 1.05;
+    text-transform: uppercase;
+  }
+  .profile-name .first { color: var(--color-title-cream); }
+  .profile-name .last { color: var(--color-title-cream); margin-left: 0.35em; }
+  .profile-bio-hover {
+    position: absolute; inset: 0; background: rgba(251,248,239,1); color: var(--color-btn-text);
+    display: flex; align-items: center; justify-content: center; padding: clamp(1.2rem, 1rem + 1vw, 2rem); text-align: center;
+    font-weight: 700; font-size: clamp(0.9rem, 0.75rem + 0.5vw, 1.2rem); line-height: 1.6;
+    opacity: 0; transition: opacity 0.3s ease;
+  }
+  .profile-photo-frame:hover .profile-bio-hover { opacity: 1; }
+  @media (max-width: 900px) {
+  .portfolio-layout { grid-template-columns: 1fr; }
+  .portfolio-grid { grid-template-columns: repeat(2,1fr); }
+  .profile-photo-frame { transform: none; margin: 0 auto; max-width: 340px; }
+}
+
+/* --- Flèche indicateur de survol sur la photo d'Elias (Sans animation) --- */
+  .profile-name .rond-fleche-profil {
+    width: 32px !important; 
+    max-width: 32px !important;
+    height: auto !important;
+    margin: 1rem auto 0 !important; /* Centre la flèche et ajoute un petit espace sous le nom */
+    display: block !important;
+  }
+
+ /* ---------- AVIS ---------- */
+  .rating-badge {
+    display: inline-flex; align-items: center; gap: 2rem;
+    padding: 1.5rem 3rem; margin: 1.5rem 0 2.5rem;
+    background: var(--gradient-btn);
+    border-radius: var(--radius-card);
+    border: var(--btn-border-width) solid var(--color-white);
+  }
+  .rating-left { display: flex; flex-direction: column; align-items: center; }
+  .rating-badge .score { font-size: clamp(2.6rem, 1.6rem + 3vw, 4.5rem); font-weight: 900; line-height: 1; }
+  .rating-badge .note-label { font-size: 0.8rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; margin-top: 0.5rem; }
+  
+  .rating-separator { width: 1px; height: 70px; background: rgba(0,0,0,0.1); }
+
+  .rating-right { display: flex; flex-direction: column; align-items: flex-start; gap: 0.4rem; }
+  .rating-right .stars { color: #fabb05; font-size: clamp(1.1rem, 0.9rem + 0.8vw, 1.6rem); letter-spacing: 2px; line-height: 1;}
+  .rating-right .avis-count { font-size: 0.95rem; font-weight: 500; color: #333; }
+  .rating-right .avis-count strong { font-weight: 800; }
+  .verifie-google { display: flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; color: #0F9D58; font-weight: 600;}
+
+  /* Conteneur du carrousel (100% de la largeur disponible, ne casse pas le site) */
+  .reviews-track-wrap { 
+    overflow: hidden; 
+    width: 100%; 
+    position: relative; 
+    padding: 1rem 0 2rem; 
+  }
+  
+  /* Dégradés sur les bords de la zone d'avis */
+  .reviews-track-wrap::before,
+  .reviews-track-wrap::after {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0;
+    width: clamp(36px, 4vw + 20px, 90px);
+    z-index: 2;
+    pointer-events: none; 
+  }
+  .reviews-track-wrap::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(15, 12, 5, 0.75) 0%, rgba(15, 12, 5, 0) 100%);
+  }
+  .reviews-track-wrap::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(15, 12, 5, 0.75) 0%, rgba(15, 12, 5, 0) 100%);
+  }
+
+  .reviews-track { 
+    display: flex; gap: 1.5rem; width: max-content; 
+    animation: scroll-reviews 80s linear infinite; 
+  }
+  
+  @keyframes scroll-reviews { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  
+  /* Cartes d'avis */
+  .review-card { 
+    background: #fdfbf7; 
+    color: #2A2A2A; 
+    border-radius: var(--radius-card); 
+    padding: 1.5rem; 
+    padding-bottom: 3.5rem; /* On laisse de la place en bas pour le logo auto */
+    width: 320px; 
+    flex-shrink: 0; 
+    display: flex; flex-direction: column; gap: 1rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: left;
+    position: relative; /* Indispensable pour le logo auto */
+  }
+
+  /* Ajout automatique du logo Google dans chaque carte */
+  .review-card::after {
+    content: "";
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    width: 60px; /* Largeur du logo */
+    height: 20px; /* Hauteur du logo */
+    background-image: url('assets/images/Google-Logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
+  }
+
+  .review-header { display: flex; align-items: center; gap: 1rem; position: relative;}
+  .review-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+  .review-avatar-text { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.1rem; }
+  .review-author { display: flex; flex-direction: column; line-height: 1.2; }
+  .review-author strong { font-size: 0.95rem; font-weight: 800; }
+  .review-author span { font-size: 0.8rem; color: #888; margin-top: 0.2rem;}
+  .review-header .stars { color: #fabb05; position: absolute; right: 0; top: 0; font-size: 0.9rem; letter-spacing: 1px;}
+  .review-text { font-size: 0.95rem; line-height: 1.5; font-weight: 500; margin: 0; }
+
+  /* Lien Google */
+  .reviews-link { margin-top: 1.5rem; text-align: center; }
+  .reviews-link a { 
+    font-weight: 600; 
+    color: var(--color-title-cream); 
+    font-size: 1.1rem; 
+    text-decoration: none; 
+    border-bottom: none; 
+    transition: color 0.3s ease; 
+  }
+  .reviews-link a:hover { 
+    color: var(--color-script-gold); 
+  }
+
+/* ---------- CONTACT ---------- */
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 1.5rem;
+    align-items: stretch;
+    max-width: 1000px;
+    margin: 3rem auto 0;
+  }
+
+ .contact-form-card { padding: 0.8rem; display: flex; flex-direction: column; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-bottom: 0.8rem; }
+  .form-row.full { grid-template-columns: 1fr; }
+
+  .contact-form-card input, .contact-form-card textarea {
+    width: 100%; padding: clamp(0.65rem, 0.55rem + 0.4vw, 0.8rem) clamp(0.8rem, 0.7rem + 0.4vw, 1rem); border-radius: 10px; border: none;
+    background: var(--color-white); font-family: var(--font-display); font-weight: 700; font-size: clamp(0.8rem, 0.75rem + 0.2vw, 0.9rem);
+  }
+
+  .contact-form-card textarea { min-height: 130px; resize: vertical; }
+  .contact-form-card ::placeholder { color: var(--color-placeholder-grey); }
+
+  .form-submit-row { display: flex; align-items: center; justify-content: flex-end; gap: 1rem; margin-top: auto; padding-top: 0.6rem; }
+  .form-status {
+    padding: 0.5rem 1.1rem;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+  }
+  .form-status.is-visible { opacity: 1; transform: translateY(0); }
+  .form-status.is-pending { background: #f4dfa0; color: #6b4f11; border: 1px solid #d8ad48; }
+  .form-status.is-success { background: #d3f3e0; color: #1f7a4d; border: 1px solid #6FCF97; }
+  .form-status.is-error { background: #fbdada; color: #a12626; border: 1px solid #EB5757; }
+  #contact-form { display: flex; flex-direction: column; flex: 1; }
+
+  .contact-side-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    height: 100%;
+  }
+
+  .contact-side-card {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.1rem;
+  }
+
+.contact-socials { display: flex; gap: 1rem; }
+  .contact-socials a {
+    width: clamp(36px, 30px + 2vw, 46px); height: clamp(36px, 30px + 2vw, 46px);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .contact-socials svg, .contact-socials img { width: clamp(36px, 30px + 2vw, 46px); height: clamp(36px, 30px + 2vw, 46px); object-fit: contain; pointer-events: none; }
+  .contact-socials a:hover { transform: translateY(-2px); }
+
+  .contact-socials a.social-instagram:hover { box-shadow: 0 0 16px rgba(225, 48, 108, 0.5); }
+  .contact-socials a.social-linkedin:hover { box-shadow: 0 0 16px rgba(10, 102, 194, 0.5); }
+  .contact-socials a.social-facebook:hover { box-shadow: 0 0 16px rgba(24, 119, 242, 0.5); }
+
+  .contact-side-card .row {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    font-weight: 800;
+    font-size: clamp(0.85rem, 0.75rem + 0.3vw, 1rem);
+  }
+
+  .icon-badge {
+    width: 34px; height: 34px;
+    background: var(--color-white);
+    border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    color: var(--color-btn-text);
+  }
+  .icon-badge svg { width: 18px; height: 18px; }
+
+  .map-frame {
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    border: var(--btn-border-width) solid var(--color-white);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .map-frame iframe { width: 100%; flex: 1; border: 0; display: block; }
+
+  .map-frame .map-caption {
+    background: var(--gradient-btn); color: var(--color-btn-text); padding: 0.7rem 1rem;
+    font-weight: 800; font-size: 0.85rem; text-transform: uppercase; display: flex; align-items: center; gap: 0.5rem;
+  }
+  .map-frame .map-caption img { height: 1.6rem; }
+
+  @media (max-width: 900px) {
+    .contact-layout { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+
+</style>
+</head>
+<body>
+
+  
+  <!-- ============================================================
+       BARRE D'OUTILS
+  ============================================================= -->
+  <div class="toolbar-wrap">
+    <nav class="toolbar">
+      <a href="#top" class="toolbar-logo">
+        <img src="assets/images/Logo-vertical.png" alt="Battement Production">
+      </a>
+      <div class="toolbar-links">
+        <a href="#description">À propos</a>
+        <a href="#activites">Nos activités</a>
+        <a href="#" data-decouvrir>Découvrir l'univers</a>
+        <a href="portfolio.html">Nos créations</a>
+      </div>
+      <a href="#contact" class="btn">Commençons à créer</a>
+      <button class="toolbar-burger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+
+  <div class="mobile-nav">
+    <a href="#description">À propos</a>
+    <a href="#activites">Nos activités</a>
+    <a href="#" data-decouvrir>Découvrir l'univers</a>
+    <a href="portfolio.html">Nos créations</a>
+    <a href="#contact" class="btn">Commençons à créer</a>
+  </div>
+
+  <!-- ============================================================
+       1. HERO
+  ============================================================= -->
+  <header class="hero" id="top">
+    <!-- ⚠️ VIDÉO : main.js choisit hero-mobile.mp4 ou hero-pc.mp4 selon l'écran -->
+    <video id="hero-video" class="hero-video" muted playsinline></video>
+    <div class="hero-overlay"></div>
+    <div class="video-modal" data-video-modal>
+      <button class="video-modal-close" aria-label="Fermer">&times;</button>
+      <div class="video-modal-backdrop"></div>
+      <div class="video-modal-container"></div>
+    </div>
+
+    <div class="hero-content">
+      <!-- ⚠️ À REMPLIR : assets/images/Logo-horizontal.svg -->
+      <img src="assets/images/Logo-horizontal.svg" alt="Battement Production" class="logo-horizontal">
+      <p class="hero-tagline">Agence de production audiovisuelle</p>
+
+      <div class="hero-ctas">
+        <button class="btn" data-decouvrir>Découvrir l'univers</button>
+        <a href="#contact" class="btn">Commençons à créer</a>
+      </div>
+
+      <div class="hero-rating">
+        <span class="score" id="hero-score">-</span>
+        <span class="stars" id="hero-stars">☆☆☆☆☆</span>
+        <span class="count"><span id="hero-count">0</span> avis</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       2. DESCRIPTION
+  ============================================================= -->
+  <section id="description">
+    <div class="container">
+      <h2>L'émotion au cœur</h2>
+      <span class="script-accent">de la création</span>
+      <p class="body-bold">
+        Battement Production conçoit et produit des contenus vidéo et visuels pour les marques,
+        entreprises, studios et spectacles : motion design, vidéos promotionnelles, contenus
+        réseaux sociaux, films promotionnels et création graphique.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3. ACTIVITÉS — texte à gauche, cartes à droite
+  ============================================================= -->
+  <section id="activites">
+    <div class="container activites-layout">
+      <img src="assets/images/Décor-onde-activités-2.svg" alt="" class="section-decor decor-activites">
+      <!-- Colonne gauche : grille + fil rouge + mots, superposés -->
+      <div class="activites-visual">
+        <img src="assets/images/grille.svg" alt="" class="grille-img" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain;">
+        <img src="assets/images/fil-rouge.svg" alt="" class="fil-rouge-img" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain;">
+       <span class="activite-word" style="position: absolute; top: 20%; left: 45%; line-height: 0.8;">MONTAGE<br><span style="margin-left: 1.5em; display: inline-block;">VIDÉO</span></span>
+       <span class="activite-word" style="position: absolute; top: 45%; left: 15%; line-height: 0.8;">MOTION<br><span style="margin-left: 1em; display: inline-block;">DESIGN</span></span>
+       <span class="activite-word" style="position: absolute; bottom: 20%; left: 27%; line-height: 0.8;">GRAPHISME</span>
+      </div>
+      <!-- Colonne droite : textes + cartes -->
+      <div class="activites-content">
+        <h2>Nos activités</h2>
+        <span class="script-accent">qualité, délai, fiabilité</span>
+        <p class="body-bold">
+          Grâce à une expertise obtenue au fil des projets nous proposons une qualité supérieure
+          avec l'ambition de toujours laisser une marque à travers l'émotion : chaque création a du sens.
+        </p>
+        <div class="activites-grid">
+          <div class="activite-card hover-lift"><span class="gradient-dark-text">Réalisation<br>de clips</span></div>
+          <div class="activite-card hover-lift"><span class="gradient-dark-text">Courts<br>métrages</span></div>
+          <div class="activite-card hover-lift"><span class="gradient-dark-text">Films<br>promotionnels</span></div>
+          <div class="activite-card hover-lift"><span class="gradient-dark-text">Acting /<br>voix-off</span></div>
+          <div class="activite-card hover-lift"><span class="gradient-dark-text">Captation +<br>after-movies</span></div>
+          <div class="activite-card hover-lift"><span class="gradient-dark-text">Réseaux<br>sociaux</span></div>
+          <div class="activite-card hover-lift"><span class="gradient-dark-text">Direction<br>artistique</span></div>
+          <div class="activite-card hover-lift"><span class="gradient-dark-text">Vidéos<br>événementielles</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. SERVICE SUR-MESURE
+  ============================================================= -->
+  <section id="service-sur-mesure">
+    <div class="container" style="text-align:center;">
+      <img src="assets/images/Décor-onde-service.svg" alt="" class="section-decor decor-services">
+      <h2>Un service sur-mesure</h2>
+      <span class="script-accent">selon vos besoins</span>
+      <p class="body-bold">
+        Nous intervenons sur l'ensemble du processus de création en fonction de vos besoins,
+        nous établissons avec vous ce qui est le mieux pour vous et nous nous adaptons.
+      </p>
+
+      <div class="service-grid">
+        <div class="service-card">
+          <div class="service-card-header">
+            <img src="assets/images/Notes_(iOS_26)_app_icon.png" alt="" class="service-icon">
+            <div class="service-meta">Votre projet <span class="size">11 Mo</span></div>
+          </div>
+          <span class="btn-dark">Pré-production</span>
+          <img src="assets/images/rond-flèche.svg" alt="" class="rond-fleche">
+          <div class="service-card-hover">
+            <!-- ⚠️ À REMPLIR : texte définitif -->
+            <p>Une idée, un projet, un besoin ? 
+              On pose les bases ensemble : concept, scénario, repérage, planning. Tout se joue avant le premier clap. </p>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card-header">
+            <img src="assets/images/emoji caméra.png" alt="" class="service-icon">
+            <div class="service-meta">Votre projet <span class="size">54 Go</span></div>
+          </div>
+          <span class="btn-dark">Production</span>
+          <img src="assets/images/rond-flèche.svg" alt="" class="rond-fleche">
+          <div class="service-card-hover">
+            <!-- ⚠️ À REMPLIR : texte définitif -->
+            <p>Caméra, lumière, équipe sur le terrain. 
+              Le jour J, on capture l’essentiel, on transforme votre idée en réalité. </p>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card-header">
+            <img src="assets/images/Files_App_icon_iOS.png" alt="" class="service-icon">
+            <div class="service-meta">Votre projet <span class="size">9 Go</span></div>
+          </div>
+          <span class="btn-dark">Post-production</span>
+          <img src="assets/images/rond-flèche.svg" alt="" class="rond-fleche">
+          <div class="service-card-hover">
+            <!-- ⚠️ À REMPLIR : texte définitif -->
+            <p>Vos images sont déjà tournées  ? 
+              On s’occupe du reste. Montage, étalonnage, effets, mixage son : la post-production donne vie à votre vision. </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. PORTFOLIO (teaser — liste complète sur portfolio.html)
+  ============================================================= -->
+  <section id="portfolio-teaser">
+    <div class="container">
+      <img src="assets/images/Décor-onde-portfolio.svg" alt="" class="section-decor decor-portfolio">
+      <div class="portfolio-layout">
+        <div class="portfolio-left-col">
+          <h2>Nos créations</h2>
+          <span class="script-accent">le portfolio</span>
+
+          <div class="portfolio-grid">
+            <!-- ⚠️ Les vignettes projets ne sont pas encore prêtes (tu me les donneras plus tard) -->
+            <!-- ⚠️ Chaque carte pointe DIRECTEMENT vers sa page projet dédiée -->
+            <a href="project.html?id=radio-fuego" class="portfolio-card hover-lift">
+              <img src="assets/images/projects/radio-fuego/logo.png"img>
+              <div class="portfolio-card-overlay"><strong>Radio Fuego</strong><span>Cliquer pour en savoir plus</span></div>
+            </a>
+            <a href="project.html?id=festival-europe2" class="portfolio-card hover-lift">
+              <img src="assets/images/projects/festival-europe2/logoE2Festival.png"img>
+              <div class="portfolio-card-overlay"><strong>Festival Europe 2</strong><span>Cliquer pour en savoir plus</span></div>
+            </a>
+            <a href="project.html?id=viva-fuego" class="portfolio-card hover-lift">
+              <img src="assets/images/projects/viva-fuego-festival/affiche-jaune.png"img>
+              <div class="portfolio-card-overlay"><strong>Viva Fuego Festival</strong><span>Cliquer pour en savoir plus</span></div>
+            </a>
+            <a href="project.html?id=pieces-jaunes" class="portfolio-card hover-lift">
+              <img src="assets/images/projects/pièces-jaunes/pieces-jaunes.png"img>
+              <div class="portfolio-card-overlay"><strong>Pièces Jaunes</strong><span>Cliquer pour en savoir plus</span></div>
+            <a href="project.html?id=bernadette-lourdes" class="portfolio-card hover-lift">
+              <img src="assets/images/projects/bernadette-de-lourdes-IT/BDL-logo.png"img>
+              <div class="portfolio-card-overlay"><strong>Bernadette de Lourdes (Italie)</strong><span>Cliquer pour en savoir plus</span></div>
+            </a>
+            <a href="project.html?id=david-ban" class="portfolio-card hover-lift">
+              <img src="assets/images/projects/David-Ban-BigParty/Affiche-David.png"img>>
+              <div class="portfolio-card-overlay"><strong>David Bán Big Party</strong><span>Cliquer pour en savoir plus</span></div>
+            </a>
+            <div class="voir-plus-wrap"><a href="portfolio.html" class="btn">Voir plus</a></div>
+          </div>
+        </div>
+
+        <div class="profile-photo-frame">
+          <img src="assets/images/9O7A2088.JPG" alt="Elias Ban">
+          <div class="profile-name">
+            <div><span class="first">ELIAS</span><span class="last">ban</span></div>
+            <!-- Ajout de la flèche ici -->
+            <img src="assets/images/rond-flèche.svg" alt="Voir la bio" class="rond-fleche-profil">
+          </div>
+          <div class="profile-bio-hover">
+            <!-- ⚠️ À REMPLIR : texte définitif de présentation d'Elias -->
+            <p>Fondateur de Battement Production en Octobre 2025, Elias BAN affirme une volonté de créer avec une vision artistique assumée : Chaque création doit avoir du sens et doit résonner à l’intérieur de chaque personne.<br> 
+              <br>
+              Formé à la réalisation, au montage et au graphisme en autodidacte et avec une passion totale, il a décidé de créer Battement Production pour créer son histoire.<br>
+              <br> 
+              Un projet pour mettre son travail et sa vision au service de votre projet et cela avec une qualité toujours croissante et un professionnalisme mis en avant. </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. AVIS
+  ============================================================= -->
+  <section id="avis">
+    <div class="container" style="text-align:center;">
+      <h2 style="display:flex; align-items:center; justify-content:center; gap:1.2rem; flex-wrap:wrap;">
+        Ce qu'ils pensent de
+        <img src="assets/images/Logo-sans-coeur.svg" alt="Battement Production" style="height:3em; width:auto; vertical-align:-0.15em;">
+      </h2>
+
+      <!-- Le Badge principal restructuré -->
+      <div class="rating-badge">
+        <div class="rating-left">
+          <span class="score gradient-dark-text" id="badge-score">-</span>
+          <span class="note-label gradient-dark-text">Note moyenne</span>
+        </div>
+        
+        <div class="rating-separator"></div>
+        
+        <div class="rating-right">
+          <span class="stars" id="badge-stars">☆☆☆☆☆</span>
+          <span class="avis-count"><strong id="badge-count">0</strong> avis vérifiés</span>
+          <div class="verifie-google">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F9D58" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            vérifiés par
+            <!-- Logo principal changé -->
+            <img src="assets/images/Google-Logo.png" alt="Google" style="height:1.2rem; object-fit: contain; margin-top: 1px;">
+          </div>
+        </div>
+      </div>
+
+      <!-- Le Carrousel dynamique -->
+      <div class="reviews-track-wrap">
+        <div class="reviews-track" id="dynamic-reviews-track">
+          <!-- Les cartes Google d'avis seront générées automatiquement ici par JavaScript -->
+        </div> 
+      </div>
+
+      <!-- Lien vers Google sans soulignement et doré au survol -->
+      <div class="reviews-link">
+        <a href="TON_LIEN_GOOGLE" target="_blank">Voir tous les avis sur Google ↗</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7. CONTACT
+  ============================================================= -->
+  <section id="contact">
+    <div class="container">
+      <img src="assets/images/Décor-onde-contact.svg" alt="" class="section-decor decor-contact">
+      <div style="text-align:center;">
+        <h2>Donnons du rythme à votre projet</h2>
+        <span class="script-accent">contactez-nous</span>
+        <p class="body-bold">Décrivez-nous votre projet, on vous répond sous 24h ouvrées.</p>
+      </div>
+
+      <div class="contact-layout" style="margin-top:3rem;">
+        <div class="contact-form-card">
+          <h3 class="gradient-dark-text" style="margin-bottom:1.6rem; font-size:1.7rem; text-transform:uppercase;">Écrivez-nous directement !</h3>
+          <form id="contact-form">
+            <div class="form-row">
+              <input type="text" name="nom" placeholder="Nom" required>
+              <input type="text" name="prenom" placeholder="Prénom" required>
+            </div>
+            <div class="form-row">
+              <input type="email" name="email" placeholder="Adresse mail" required>
+              <input type="tel" name="telephone" placeholder="Téléphone" required pattern="^(0[1-9](\s?\d{2}){4}|\+[1-9]\d{0,2}[\s.]?\d{4,14})$" title="Numéro français (ex : 06 12 34 56 78) ou international avec indicatif (ex : +32 471 23 45 67)">
+            </div>
+            <div class="form-row full"><input type="text" name="societe" placeholder="Société (facultatif)"></div>
+            <div class="form-row full message-row"><textarea name="message" placeholder="Votre message..." required></textarea></div>
+            <div class="form-submit-row">
+              <p id="form-status" class="form-status"></p>
+              <button type="submit" class="btn-dark">Envoyer</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="contact-side-col">
+          <div class="contact-side-card">
+            <div class="contact-socials">
+              <a href="https://www.instagram.com/ze_elias_ban/" target="_blank" rel="noopener" aria-label="Instagram" class="social-instagram">
+                <img src="assets/images/Instagram_logo_2016.png" alt="Instagram">
+              </a>
+              <a href="https://www.linkedin.com/in/elias-ban/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-linkedin">
+                <svg viewBox="0 0 24 24"><path fill="#0A66C2" d="M19 3A2 2 0 0121 5v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2zM8.34 18v-7.67H5.67V18zM7 9.24a1.56 1.56 0 100-3.12 1.56 1.56 0 000 3.12zM18.34 18v-4.2c0-2.25-1.2-3.3-2.8-3.3a2.4 2.4 0 00-2.18 1.2v-1.03H10.7c.03.7 0 7.33 0 7.33h2.66v-4.1c0-.22 0-.44.08-.6.19-.44.6-.9 1.3-.9.92 0 1.3.7 1.3 1.72V18z"/></svg>
+              </a>
+              <a href="https://www.facebook.com/elias.ban.79/" target="_blank" rel="noopener" aria-label="Facebook" class="social-facebook">
+                <svg viewBox="0 0 24 24"><path fill="#1877F2" d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0022 12z"/></svg>
+              </a>
+            </div>
+            <div class="row gradient-dark-text">
+              <span class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" stroke="none"/><path d="M4 6h16v12a2 2 0 01-2 2H6a2 2 0 01-2-2z"/><path d="M4 6l8 7 8-7"/></svg></span>
+              battementproduction@gmail.com
+            </div>
+            <div class="row gradient-dark-text">
+              <span class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.68 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0122 16.92z"/></svg></span>
+              06.20.61.58.66
+            </div>
+          </div>
+          <div class="map-frame">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d167924.5!2d2.349!3d48.8566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2sParis!5e0!3m2!1sfr!2sfr"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="map-caption"><img src="assets/images/logo-ping.svg" alt=""> Basé en Île-de-France, France</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================= -->
+  <footer>
+    <!-- GAUCHE : Logo agrandi sans marge -->
+    <a href="#top" class="footer-brand">
+      <img src="assets/images/Logo-vertical.png" alt="Battement Production">
+    </a>
+
+    <!-- MILIEU : Liens et informations regroupés en un bloc -->
+    <div class="footer-center">
+      <div class="footer-links">
+        <a href="#description">À propos</a>
+        <a href="#contact">Contact</a>
+        <a href="mentions.html">Mentions légales</a>
+      </div>
+      <div class="footer-infos">
+        <span>&copy; 2026 Elias Ban (Battement Production) — SIRET 99189218300013</span>
+        <span>Paris (75) · Île-de-France · 06 20 61 58 66</span>
+      </div>
+    </div>
+
+   <!-- DROITE : Réseaux sociaux -->
+    <div class="footer-socials">
+      <!-- ⚠️ N'oubliez pas de remettre vos vrais liens ici -->
+      <a href="https://www.instagram.com/ze_elias_ban/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3 0 4.1.06 1.1.05 1.85.23 2.5.48a5 5 0 011.8 1.18 5 5 0 011.19 1.8c.25.66.42 1.4.47 2.5.06 1.1.06 1.45.06 4.1s0 3-.06 4.1c-.05 1.1-.23 1.85-.48 2.5a5 5 0 01-1.18 1.8 5 5 0 01-1.8 1.19c-.66.25-1.4.42-2.5.47-1.1.06-1.45.06-4.1.06s-3 0-4.1-.06c-1.1-.05-1.85-.23-2.5-.48a5 5 0 01-1.8-1.18 5 5 0 01-1.19-1.8c-.25-.66-.42-1.4-.47-2.5C2 15 2 14.7 2 12s0-3 .06-4.1c.05-1.1.23-1.85.48-2.5a5 5 0 011.18-1.8A5 5 0 015.5 2.4c.66-.25 1.4-.42 2.5-.47C9.1 2 9.4 2 12 2zm0 5a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm5.3-8.4a1.2 1.2 0 100-2.4 1.2 1.2 0 000 2.4z"/></svg></a>
+      <a href="https://www.linkedin.com/in/elias-ban/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 3A2 2 0 0121 5v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2zM8.34 18v-7.67H5.67V18zM7 9.24a1.56 1.56 0 100-3.12 1.56 1.56 0 000 3.12zM18.34 18v-4.2c0-2.25-1.2-3.3-2.8-3.3a2.4 2.4 0 00-2.18 1.2v-1.03H10.7c.03.7 0 7.33 0 7.33h2.66v-4.1c0-.22 0-.44.08-.6.19-.44.6-.9 1.3-.9.92 0 1.3.7 1.3 1.72V18z"/></svg></a>
+      <a href="https://www.facebook.com/elias.ban.79/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0022 12z"/></svg></a>
+    </div>
+  </footer>
+
+  <!-- Script EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <!-- Script Google Maps & Places API -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsgpooBaHW2MaOFL_8CV_GJmPqgfTAV7s&libraries=places"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</body>
+</html>

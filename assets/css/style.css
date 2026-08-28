@@ -1,0 +1,586 @@
+/* =====================================================================
+   BATTEMENT PRODUCTION — STYLE GLOBAL
+   Toutes les couleurs/polices viennent du guide de charte fourni.
+   Change une variable ici, ça change partout sur le site.
+===================================================================== */
+
+/* --- Polices maison : dépose tes fichiers dans /assets/fonts/ --- */
+@font-face {
+  font-family: 'Vivaldi';
+  src: url('../fonts/Vivaldi.woff2') format('woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Bacony Script';
+  src: url('../fonts/BaconyScript.woff2') format('woff2');
+  font-display: swap;
+}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&display=swap');
+
+:root {
+  /* --- Fond : dégradé circulaire depuis le coin haut-gauche (0% 0%) --- */
+  --gradient-bg: radial-gradient(circle at 0% 0%, #000000 0%, #191401 55%, #2b2b2b 100%);
+
+  /* --- Couleurs texte par usage (exactement celles de la charte) --- */
+  --color-white: #FFFFFF;
+  --color-title-cream: #FEF4D3;      /* "Nos activités", "L'émotion au cœur", etc. */
+  --color-script-gold: #D8AD48;      /* Accents Vivaldi : "de la création", "le portfolio" */
+  --color-hand-yellow: #F3CD44;      /* Labels Bacony Script : "MOTION DESIGN" etc. */
+  --color-btn-text: #634A08;         /* Texte brun des boutons crème */
+  --color-placeholder-grey: #838383; /* Placeholders des champs de formulaire */
+  --color-inner-dark: #37251D;       /* Fond des boutons foncés (Envoyer, labels services) */
+
+  /* --- Dégradé "texte sombre" utilisé en background-clip sur fond crème --- */
+  --gradient-dark-text: radial-gradient(circle at 0% 0%, #000000 0%, #191401 55%, #2b2b2b 100%);
+
+  /* --- Boutons crème (le composant le plus réutilisé du site) --- */
+  --gradient-btn: linear-gradient(135deg, #f3f4e3 0%, #dbd299 100%);
+  --btn-border-width: 4px;
+
+  /* --- Fil rouge décoratif (section Activités) --- */
+  --color-red: #C81E2C;
+
+  /* --- Typographie --- */
+  --font-display: 'Montserrat', sans-serif;   /* Toujours en majuscule, très gras (800/900) */
+  --font-script: 'Vivaldi', cursive;           /* Toujours en minuscule */
+  --font-hand: 'Bacony Script', cursive;
+  --font-helvetica: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  --nav-height: 84px;
+  --max-width: 1340px;
+  --gutter: 1.5rem;
+  --radius-pill: 999px;
+  --radius-card: 22px;
+
+  --glow-gold-soft: 0 0 10px rgba(216, 173, 72, 0.45);
+  --glow-gold-strong: 0 0 24px rgba(216, 173, 72, 0.75), 0 0 55px rgba(216, 173, 72, 0.35);
+}
+
+/* =====================================================================
+   RESET
+===================================================================== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: var(--nav-height); }
+
+body {
+  background: transparent;
+  color: var(--color-white);
+  font-family: var(--font-display);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, #211c0a 30%, #000000 100%);
+  background-attachment: fixed;
+  z-index: -2;
+}
+
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+img, video { max-width: 100%; display: block; }
+button { font-family: inherit; border: none; background: none; cursor: pointer; }
+
+section { padding: 3.5rem var(--gutter); position: relative; overflow: visible; }
+#description { padding: 4rem 1.5rem 2rem 1.5rem; }
+/* haut | droite | bas | gauche */
+
+#activites { padding: 0 1.5rem 0 0rem; }
+/* haut | droite | bas | gauche */
+
+#portfolio {
+    padding: 18rem 1.5rem 2rem 1.5rem; /* Augmentez le 4rem à 5rem ou 6rem si vous voulez encore plus d'air en haut */
+}
+
+.container { max-width: var(--max-width); margin: 0 auto; position: relative; z-index: 2; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--color-title-cream);
+  letter-spacing: 0.01em;
+}
+h1 { font-size: clamp(2.6rem, 1.4rem + 3.2vw, 4.6rem); line-height: 1.05; margin-bottom: -0.3em; }
+h2 { font-size: clamp(1.9rem, 1.1rem + 2.1vw, 3.2rem); line-height: 1.05; margin-bottom: -0.15em; }
+
+/* Accent script doré — toujours en minuscule, jamais transform:uppercase */
+.script-accent {
+  display: block;
+  font-family: var(--font-script);
+  font-size: clamp(2.6rem, 1.3rem + 3.6vw, 4.8rem);
+  text-transform: none;
+  color: var(--color-script-gold);
+  line-height: 1;
+  margin-top: -0.1em;
+}
+
+/* Paragraphe standard blanc gras */
+.body-bold {
+  max-width: 100ch;
+  margin: 1.2rem auto 0;
+  font-weight: 800;
+  color: var(--color-white);
+  font-size: clamp(0.9rem, 0.75rem + 0.5vw, 1.1rem);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* Texte clair — utilisé sur les cartes en verre sombre (le nom garde l'historique
+   mais la couleur a été adaptée : avant un dégradé sombre pour fond clair,
+   maintenant toutes les cartes sont en verre sombre donc texte clair) */
+.gradient-dark-text {
+  display: inline-block;
+  color: var(--color-btn-text);
+  font-weight: 800;
+}
+
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--color-script-gold);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =====================================================================
+   BOUTON CRÈME — composant central du site (nav, hero, CTA, cartes)
+===================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(0.85rem, 0.7rem + 0.4vw, 1rem);
+  text-transform: uppercase;
+  padding: clamp(0.8rem, 0.65rem + 0.4vw, 1.1rem) clamp(1.6rem, 1.2rem + 1vw, 2.4rem);
+  border-radius: var(--radius-pill);
+  background: var(--gradient-btn);
+  border: 1.5px solid var(--color-white);
+  color: var(--color-btn-text);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+.btn:hover {
+  box-shadow: var(--glow-gold-strong);
+  transform: translateY(-2px);
+}
+
+/* Bouton "intérieur foncé" (ex: Envoyer, labels Pré-production) */
+.btn-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(0.95rem, 0.8rem + 0.4vw, 1.15rem);
+  text-transform: uppercase;
+  padding: clamp(0.75rem, 0.6rem + 0.4vw, 1rem) clamp(1.4rem, 1rem + 1vw, 2rem);
+  border-radius: var(--radius-pill);
+  background: var(--color-inner-dark);
+  border: 1px solid var(--color-white);
+  color: var(--color-title-cream);
+  transition: all 0.3s ease;
+}
+.btn-dark:hover { box-shadow: var(--glow-gold-soft); }
+
+.contact-form-card .btn-dark:hover {
+  box-shadow: var(--glow-gold-strong);
+  transform: translateY(-2px);
+}
+
+/* =====================================================================
+   BARRE D'OUTILS
+===================================================================== */
+.toolbar-wrap {
+  position: fixed; top: 1.1rem; left: 0; width: 100%; z-index: 200;
+  display: flex; justify-content: center; padding: 0 var(--gutter);
+  pointer-events: none;
+}
+.toolbar {
+  pointer-events: all;
+  width: 100%; max-width: 1000px;
+  display: flex; align-items: center; justify-content: space-between; gap: 1.2rem;
+  padding: 0.1rem 0.9rem 0.1rem 0.9rem;
+  background: rgba(32, 30, 20, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--color-white);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.toolbar-logo img { height: clamp(52px, 40px + 2.5vw, 70px); width: auto; }
+.toolbar-links { display: flex; align-items: center; gap: 1.8rem; }
+.toolbar-links a {
+  font-size: 0.9rem; font-weight: 800; text-transform: uppercase;
+  color: var(--color-white); transition: color 0.25s ease; white-space: nowrap;
+}
+.toolbar-links a:hover { color: var(--color-script-gold); }
+.toolbar .btn { padding: 0.6rem 1.5rem; font-size: 0.8rem; }
+
+/* --- Bouton burger --- */
+.toolbar-burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+.toolbar-burger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--color-white);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.toolbar-burger.is-active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.toolbar-burger.is-active span:nth-child(2) { opacity: 0; }
+.toolbar-burger.is-active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* --- Panneau plein écran du menu mobile --- */
+.mobile-nav {
+  position: fixed;
+  inset: 0;
+  z-index: 199;
+  background: rgba(10, 9, 4, 0.97);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.mobile-nav.is-open {
+  opacity: 1;
+  pointer-events: all;
+}
+.mobile-nav a {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-title-cream);
+}
+.mobile-nav a:hover { color: var(--color-script-gold); }
+.mobile-nav a.btn { color: var(--color-btn-text); }
+
+@media (max-width: 860px) {
+  .toolbar-links { display: none; }
+  .toolbar-burger { display: flex; }
+}
+
+/* ========================================= */
+/* FOOTER DÉFINITIF                          */
+/* ========================================= */
+
+footer {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; /* Magie : 3 colonnes, forçant le milieu au centre exact */
+    align-items: center;
+    
+    background: linear-gradient(180deg, #fdfbf7 0%, #f1ece4 100%);
+    color: #2d3748;
+    
+    /* Hauteur considérablement réduite (0.5rem en haut/bas au lieu de 1.5rem) */
+    padding: 1rem 3rem; 
+    border: none;
+}
+
+@media (max-width: 860px) {
+  footer {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    row-gap: 1rem;
+    padding: 1.5rem 1.2rem;
+  }
+  .footer-brand { justify-self: center; }
+  .footer-links { flex-wrap: wrap; justify-content: center; gap: 0.8rem 1.6rem; }
+  .footer-infos { flex-direction: column; gap: 0.2rem; }
+  .footer-socials { justify-self: center; }
+}
+
+/* --- LOGO GAUCHE --- */
+.footer-brand {
+    justify-self: start; /* S'assure que le logo reste collé à gauche */
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+}
+
+.footer-brand img {
+    height: clamp(38px, 28px + 2.5vw, 55px); /* Hauteur réelle réduite pour affiner le footer */
+    object-fit: contain;
+    
+    /* On le regonfle visuellement sans impacter le footer */
+    transform: scale(1.5); 
+    transform-origin: left center;
+    filter: drop-shadow(1px 4px 2px rgba(0, 0, 0, 0.08)); 
+}
+
+/* --- MILIEU (Centrage absolu) --- */
+.footer-center {
+    justify-self: center; /* Verrouille le bloc au centre de la grille */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem; /* Espacement très réduit entre les liens et le texte */
+}
+
+.footer-links {
+    display: flex;
+    gap: 3rem;
+}
+
+/* Animation et style des liens */
+.footer-links a {
+    color: #1a202c;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--color-script-gold, #d8ad48); /* Doré au survol */
+}
+
+.footer-infos {
+    display: flex;
+    flex-direction: row; /* On passe de 'column' à 'row' pour aligner sur la même ligne */
+    flex-wrap: wrap; /* Permet de repasser sur 2 lignes si l'écran d'un téléphone est trop petit */
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem; /* Ajoute un petit espace entre les deux textes */
+    font-size: 0.8rem;
+    color: #4a5568;
+    font-weight: 500;
+    margin-top: 0.3rem;
+}
+
+/* --- RÉSEAUX DROITE --- */
+.footer-socials {
+    justify-self: end; /* S'assure que les icônes restent collées à droite */
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-socials a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: 1.5px solid #2d3748;
+    border-radius: 50%;
+    transition: 0.3s ease;
+}
+
+.footer-socials svg {
+    width: 18px;
+    height: 18px;
+    fill: #2d3748;
+}
+
+.footer-socials a:hover {
+    background-color: #2d3748;
+    transform: translateY(-3px); /* Ajout du même petit soulèvement que les liens */
+}
+
+.footer-socials a:hover svg {
+    fill: #fdfbf7;
+}
+
+/* =====================================================================
+   COMPOSANTS RÉUTILISABLES
+===================================================================== */
+.hover-lift { transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; }
+.hover-lift:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--glow-gold-strong);
+}
+
+.decor-svg { position: absolute; pointer-events: none; z-index: 0; opacity: 0.9; }
+
+/* =====================================================================
+   HALOS DE LUMIÈRE — recréés en CSS pur pour se fondre dans le fond fixe
+   du body (les fichiers dégradé-*.svg créaient des blocs visibles avec
+   des bords nets, donc on ne les utilise plus).
+===================================================================== */
+.glow-blob {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 50%;
+  filter: blur(90px);
+  background: radial-gradient(circle, rgba(216, 173, 72, 0.5), rgba(216, 173, 72, 0) 70%);
+}
+
+/* Icone rond-fleche reutilisee (chevrons de cartes) */
+.rond-fleche { width: 40px; height: 40px; display: block; margin: 1rem auto 0; transition: transform 0.3s ease; }
+[aria-expanded="true"] .rond-fleche { transform: rotate(180deg); }
+
+/* =====================================================================
+   RÉVÉLATION ACTIVITÉS — IntersectionObserver (main.js)
+   Variables --grid-reveal et --line-reveal (0 ou 1)
+===================================================================== */
+#activites { --grid-reveal: 0; --line-reveal: 0; }
+
+/* 1. L'animation de la grille en slide fondu */
+.grille-img {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.grille-img.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 2. L'animation du fil rouge avec le rembobinage instantané */
+.fil-rouge-img {
+  clip-path: inset(0 0 calc((1 - var(--line-reveal)) * 100%) 0);
+  /* L'astuce : transition de 3s à l'aller, mais 0s (instantané) quand line-reveal repasse à 0 */
+  transition: clip-path calc(var(--line-reveal) * 3s) ease;
+}
+
+/* 3. Les mots (déjà présents dans ton code) */
+.activite-word { 
+  opacity: 0; 
+  transform: translateY(-14px); 
+  transition: opacity 0.4s ease, transform 0.4s ease; 
+}
+.activite-word.is-visible { 
+  opacity: 1; 
+  transform: translateY(0); 
+}
+
+/* Placeholder pour les vignettes portfolio pas encore livrees */
+.portfolio-placeholder {
+  width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, #2b2b2b, #14120a);
+  color: var(--color-title-cream); font-weight: 800; text-align: center; padding: 1rem;
+}
+
+/* --- Cartes glassmorphism --- */
+.service-card,
+.contact-form-card,
+.activite-card,
+.portfolio-card,
+.rating-badge,
+.contact-side-card {
+  background: var(--gradient-btn);
+  border: var(--btn-border-width) solid var(--color-white);
+  border-radius: 20px;
+}
+
+/* --- Formulaire de contact --- */
+.contact-form-card { padding: 1.8rem; } 
+.contact-form-card textarea { min-height: 120px; }
+
+/* --- Bouton dans les liens du footer --- */
+.footer-links a.btn { color: var(--color-btn-text) !important; }
+
+/* =====================================================================
+   MODAL VIDÉO
+===================================================================== */
+.video-modal {
+  position: fixed; inset: 0; z-index: 500; display: none; align-items: center; justify-content: center;
+}
+.video-modal.is-open { display: flex; }
+.video-modal-backdrop {
+  position: absolute; inset: 0; background: rgba(0,0,0,0.9);
+}
+.video-modal-close {
+  position: absolute; top: 2rem; right: 2rem; z-index: 501;
+  width: 48px; height: 48px; border-radius: 50%;
+  background: rgba(255,255,255,0.1); border: none;
+  color: #fff; font-size: 2rem; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: background 0.2s ease;
+}
+.video-modal-close:hover { background: rgba(255,255,255,0.2); }
+.video-modal-container { position: relative; z-index: 501; max-width: 90vw; max-height: 90vh; box-shadow: 0 0 60px rgba(216,173,72,0.55); border-radius: 16px; overflow: hidden; }
+
+
+/* =====================================================================
+   DÉCORS DES SECTIONS — Paramètres individuels (Position, Taille, Rotation)
+===================================================================== */
+
+/* Règle générale commune à tous les décors */
+.section-decor {
+  position: absolute;
+  pointer-events: none; /* L'image n'interfère pas avec les clics de souris */
+  z-index: -1;           /* Reste en arrière-plan derrière le contenu */
+  display: block;
+  opacity: 0.3;         /* Opacité globale par défaut (de base 0.3) */
+  transform-origin: center center; /* Point d'ancrage pour les rotations/zooms */
+}
+
+/* --- 2. Décor Activités --- */
+.decor-activites {
+  top: -500px;
+  left: -600px;
+  width: 1300px;
+  transform: rotate(2deg); /* Rotation active */
+}
+
+/* --- 3. Décor Service sur-mesure --- */
+.decor-services {
+  top: -400px;
+  left: 700px;
+  width: 0px; /* 1000 à la base */
+  transform: rotate(10deg); /* Modifie les degrés ici */
+}
+
+/* --- 4. Décor Portfolio --- */
+  .decor-portfolio {
+    top: -700px;
+    left: -200px;
+    width: 100%;          /* On s'appuie sur une base fluide */
+    min-width: 2000px;    /* Force une vraie largeur minimale sans être bloqué */
+    max-width: none;      /* Empêche le navigateur de brider la taille */
+    transform: rotate(50deg); 
+  }
+
+/* --- 5. Décor Contact --- */
+.decor-contact {
+  top: 400px;
+  left: -400px;
+  width: 600px;
+  transform: rotate(0deg); /* Modifie les degrés ici */
+}
+
+html, body {
+    overflow-x: hidden; /* Empêche le défilement horizontal parasite */
+  }
+
+  html, body {
+    overflow-x: hidden; /* Empêche le défilement horizontal parasite */
+  }
+
+  /* On s'assure que la section contact et le footer masquent ce qui dépasse trop bas */
+  #contact, footer {
+    position: relative;
+    overflow: hidden;
+  }
