@@ -220,7 +220,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   border-radius: var(--radius-pill);
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
-.toolbar-logo img { height: clamp(52px, 40px + 2.5vw, 70px); width: auto; }
+.toolbar-logo {
+  flex-shrink: 0;
+}
+.toolbar-logo img {
+  width: clamp(52px, 40px + 2.5vw, 70px);
+  height: auto;
+  max-height: clamp(52px, 40px + 2.5vw, 70px);
+  object-fit: contain;
+}
 .toolbar-links { display: flex; align-items: center; gap: 1.8rem; }
 .toolbar-links a {
   font-size: 0.9rem; font-weight: 800; text-transform: uppercase;
