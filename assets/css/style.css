@@ -176,7 +176,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   transition: all 0.3s ease;
   white-space: nowrap;
 }
-.btn:hover {
+.btn:hover,
+.btn.is-centered {
   box-shadow: var(--glow-gold-strong);
   transform: translateY(-2px);
 }
