@@ -320,6 +320,7 @@ window.addEventListener('load', () => {
     threshold: 0.6,
     rootMargin: '-35% 0px -35% 0px'
   };
+  const STAGGER_MS = 350; // délai entre chaque carte du relais, gauche → droite, ligne par ligne
 
   // --- Activités + galerie projet : effet immédiat, inchangé ---
   const simpleCards = document.querySelectorAll('.activite-card, .media-item');
@@ -330,22 +331,51 @@ window.addEventListener('load', () => {
   }, OBSERVER_OPTIONS);
   simpleCards.forEach(card => simpleObserver.observe(card));
 
-  // --- Cartes portfolio (home + page portfolio) : animation décalée de gauche à droite ---
-  const STAGGER_MS = 100; // délai entre chaque colonne
-  const portfolioCards = document.querySelectorAll('.portfolio-card, .card.hover-lift');
-  const portfolioObserver = new IntersectionObserver((entries) => {
+  // --- Grille portfolio de la page portfolio.html : décalage simple gauche/droite ---
+  const gridCards = document.querySelectorAll('.card.hover-lift');
+  const gridObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       const card = entry.target;
-
       if (entry.isIntersecting) {
         const siblings = Array.from(card.parentElement.children);
         const columnCount = getComputedStyle(card.parentElement).gridTemplateColumns.split(' ').length || 1;
         const column = siblings.indexOf(card) % columnCount;
-        setTimeout(() => card.classList.add('is-centered'), column * STAGGER_MS);
+        setTimeout(() => card.classList.add('is-centered'), column * 100);
       } else {
         card.classList.remove('is-centered');
       }
     });
   }, OBSERVER_OPTIONS);
-  portfolioCards.forEach(card => portfolioObserver.observe(card));
+  gridCards.forEach(card => gridObserver.observe(card));
+
+  // --- Aperçu portfolio de la home page : UNE SEULE carte active à la fois,
+  //     avec relais automatique dans l'ordre de lecture (gauche → droite, haut → bas) ---
+  const homeCards = document.querySelectorAll('.portfolio-card');
+  const homeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const card = entry.target;
+
+      if (!entry.isIntersecting) {
+        card.classList.remove('is-centered');
+        card.dataset.queued = '';
+        return;
+      }
+
+      if (card.dataset.queued === 'true') return;
+      card.dataset.queued = 'true';
+
+      const siblings = Array.from(card.parentElement.children);
+      const columnCount = getComputedStyle(card.parentElement).gridTemplateColumns.split(' ').length || 1;
+      const index = siblings.indexOf(card);
+      const column = index % columnCount;
+
+      setTimeout(() => {
+        homeCards.forEach(other => {
+          if (other !== card) other.classList.remove('is-centered');
+        });
+        card.classList.add('is-centered');
+      }, column * STAGGER_MS);
+    });
+  }, OBSERVER_OPTIONS);
+  homeCards.forEach(card => homeObserver.observe(card));
 })();
