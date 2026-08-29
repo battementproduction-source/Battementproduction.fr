@@ -294,6 +294,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 @media (max-width: 860px) {
   .toolbar-links { display: none; }
   .toolbar-burger { display: flex; }
+  .toolbar .btn {
+    padding: 0.45rem 1rem;
+    font-size: 0.7rem;
+  }
 }
 
 /* ========================================= */
