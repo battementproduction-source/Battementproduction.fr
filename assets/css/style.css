@@ -70,12 +70,16 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  background: radial-gradient(circle at center, #211c0a 30%, #000000 100%);
+  background-attachment: fixed;
+}
+
 body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background: radial-gradient(circle at center, #211c0a 30%, #000000 100%);
-  background-attachment: fixed;
+  background: transparent;
   z-index: -2;
 }
 
