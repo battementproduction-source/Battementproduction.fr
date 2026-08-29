@@ -28,8 +28,8 @@
 
       "gallery": [
   {
-    "type": "link",
-    "url": "https://drive.google.com/file/d/17Z5v3CXR-EDjL83Sqri6SQE2Ls7HmaZi/view?usp=share_link",
+    "type": "video",
+    "src": "assets/images/projects/radio-fuego/présentation.mp4",
     "thumbnail": "assets/images/projects/radio-fuego/présentation-thumb.png",
     "title": "Vidéo de présentation"
   },
@@ -120,21 +120,20 @@
 ],
 "gallery": [
   {
-    "type": "link",
-    "url": "https://drive.google.com/file/d/1yRK9QjtWhqnvqHcIFiW7pYKPhdwr0Bmz/view?usp=share_link",
+    "type": "video",
+    "src": "assets/images/projects/festival-europe2/INTRO-FINAL.mp4",
     "thumbnail": "assets/images/projects/festival-europe2/INTRO-FINAL-thumb.png",
     "title": "Vidéo d'introduction du show"
   },
   {
-    "type": "link",
-    "url": "https://drive.google.com/file/d/1_nu8PVW1dXJt_MMxGN8H46qWA9hPrvhJ/view?usp=share_link",
-    "vertical": true,
+    "type": "video",
+    "src": "assets/images/projects/festival-europe2/vidéo-intro-salle.mp4",
     "thumbnail": "assets/images/projects/festival-europe2/intro-salle-thumb.png",
     "title": "Vidéo d'introduction depuis la salle"
   },
   {
-    "type": "link",
-    "url": "https://drive.google.com/file/d/1uahKNgzd8nMAjVylkYweFd0TAqhUHfeQ/view?usp=share_link",
+    "type": "video",
+    "src": "assets/images/projects/festival-europe2/Playlist Recap.mp4",
     "thumbnail": "assets/images/projects/festival-europe2/Playlist-Recap-thumb.png",
     "title": "Playlist récap de fin"
   }
@@ -160,35 +159,32 @@
 ],
       "gallery": [
         {
-          "type": "link",
-          "url": "https://drive.google.com/file/d/1sswXKSdS1jwClGkB9HFQsSNrk08y6VtV/view?usp=share_link",
+          "type": "video",
+          "src": "assets/images/projects/bernadette-de-lourdes-IT/Making-of-Trailer(VostFR).mp4",
           "thumbnail": "assets/images/projects/bernadette-de-lourdes-IT/makingof-trailer-thumb.png",
           "title": "Making Of du Trailer"
         },
         {
-          "type": "link",
-          "url": "https://drive.google.com/file/d/1Yp5LMVYsdrNRdQPtyt9XhhudPlsZD19a/view?usp=share_link",
+          "type": "video",
+          "src": "assets/images/projects/bernadette-de-lourdes-IT/Avis-spectateurs(VostFr).mp4",
           "thumbnail": "assets/images/projects/bernadette-de-lourdes-IT/microtrottoir.png",
           "title": "Micro-trottoir première (Vostfr)"
         },
         {
-          "type": "link",
-          "url": "https://drive.google.com/file/d/1IjLLI7GscHdS626XWebuizha33p5e2fV/view?usp=share_link",
-          "vertical": true,
+          "type": "video",
+          "src": "assets/images/projects/bernadette-de-lourdes-IT/Vidéos-artistes.mp4",
           "thumbnail": "assets/images/projects/bernadette-de-lourdes-IT/teaser-artistes.png",
           "title": "Teaser artistes"
         },
         {
-          "type": "link",
-          "url": "https://drive.google.com/file/d/1vqkP3OhSZyXRyze6uEKA7Ew2GYDyCXwo/view?usp=share_link",
-          "vertical": true,
+          "type": "video",
+          "src": "assets/images/projects/bernadette-de-lourdes-IT/Première-BDL-Italie(VF).mp4",
           "thumbnail": "assets/images/projects/bernadette-de-lourdes-IT/thumb-première.png",
           "title": "Recap Première Italienne (FR)"
         },
         {
-          "type": "link",
-          "url": "https://drive.google.com/file/d/1IAgSGs71qarZzbQIW1-EoSqMGDb3vsui/view?usp=share_link",
-          "vertical": true,
+          "type": "video",
+          "src": "assets/images/projects/bernadette-de-lourdes-IT/Vlog-BDL-Italy.mp4",
           "thumbnail": "assets/images/projects/bernadette-de-lourdes-IT/pré-première.png",
           "title": "Captation avant la première"
         }
@@ -223,9 +219,8 @@
           "title": "Les P'tits Soleils (clip officiel)"
         },
         {
-          "type": "link",
-          "url": "https://drive.google.com/file/d/1qVgl1C6BkwfnNiK1tE8Wfbk527vcdW_N/view?usp=share_link",
-          "vertical": true,
+          "type": "video",
+          "src": "assets/images/projects/pieces-jaunes/PJ-makingof.mp4",
           "thumbnail": "assets/images/projects/pieces-jaunes/pj-thumb.png",
           "title": "Making Of Clip"
         }
@@ -270,26 +265,26 @@
       "title": "Trailer du viva fuego festival"
     },
     {
-      "type": "link",
-      "url": "https://drive.google.com/file/d/131PWcGM9Ja5Cxu08flmDuzlW1DwhESML/view?usp=share_link",
+      "type": "video",
+      "src": "assets/images/projects/viva-fuego-festival/INTRO DU SHOW.mp4",
       "thumbnail": "assets/images/projects/viva-fuego-festival/intro1-thumb.png",
       "title": "Vidéo d'ouverture de la 1ère partie"
     },
     {
-      "type": "link",
-      "url": "https://drive.google.com/file/d/1scxpCGph-MWH4jbvR7pu4by7nOdytTi3/view?usp=share_link",
+      "type": "video",
+      "src": "assets/images/projects/viva-fuego-festival/Intro Partie 2.mp4",
       "thumbnail": "assets/images/projects/viva-fuego-festival/intro2-thumb.png",
       "title": "Vidéo d'ouverture de la 2e partie"
     },
     {
-      "type": "link",
-      "url": "https://drive.google.com/file/d/1I2PKofIzUwpT7Dd8em6CjpUiOahWXGnu/view?usp=share_link",
+      "type": "video",
+      "src": "assets/images/projects/viva-fuego-festival/Willy William Hommage.mp4",
       "thumbnail": "assets/images/projects/viva-fuego-festival/WW-thumb.png",
       "title": "Vidéo d'hommage à Willy William"
     },
     {
-      "type": "link",
-      "url": "https://drive.google.com/file/d/1kkcwy0KpCq2EUeevCmwdiR__LAsVrnhH/view?usp=share_link",
+      "type": "video",
+      "src": "assets/images/projects/viva-fuego-festival/Vidéo Promo DAB+.mp4",
       "thumbnail": "assets/images/projects/viva-fuego-festival/DAB+-thumb.png",
       "title": "Interlude Promo vidéo"
     },
@@ -300,8 +295,8 @@
       "title": "After-movie du Viva Fuego Festival"
     },
     {
-      "type": "link",
-      "url": "https://drive.google.com/file/d/1TETQqzoEYM5yirwOdsFV74Po7GDvNFJE/view?usp=share_link",
+      "type": "video",
+      "src": "assets/images/projects/viva-fuego-festival/DR.Yaro Intro.mp4",
       "thumbnail": "assets/images/projects/viva-fuego-festival/thumb-video-artiste.png",
       "title": "Exemple de vidéo indivuel artiste jour J"
     },
@@ -359,15 +354,14 @@
 
       "gallery": [
         {
-          "type": "link",
-          "url": "https://drive.google.com/file/d/1V_7EFpLMwcQefnSw1rQP9mNPWWuf76C0/view?usp=share_link",
-          "vertical": true,
+          "type": "video",
+          "src": "assets/images/projects/pop-session/Pop-Session2.mp4",
           "thumbnail": "assets/images/projects/pop-session/popsession-thumb.png",
           "title": "Vidéo des coulisses"
         },
         {
-          "type": "link",
-          "url": "https://drive.google.com/file/d/13zO15nWiM4BREHABEgw21s6-opLd5lVq/view?usp=share_link",
+          "type": "video",
+          "src": "assets/images/projects/pop-session/Bestof-PopSession.mp4",
           "thumbnail": "assets/images/projects/pop-session/bestof-popsession-thumb.png",
           "title": "Best of Emission Pop Session"
         }
@@ -467,8 +461,8 @@
           "title": "Teaser Prolongation"
         },
         {
-          "type": "link",
-          "url": "https://drive.google.com/file/d/1m5EHsRr8LHhAKuuO11i4bfB120CQeMY3/view?usp=share_link",
+          "type": "video",
+          "src": "assets/images/projects/bonjour-ivresse/M6-matin.mp4",
           "thumbnail": "assets/images/projects/bonjour-ivresse/thumb-M6.png",
           "title": "Diffusion M6 (Absolument Star)"
         }
@@ -490,8 +484,8 @@
 
       "gallery": [
         {
-          "type": "link",
-          "url": "https://drive.google.com/file/d/1jK-O4-qYI1vKgOFadFMWMqXMq-f-W3gs/view?usp=share_link",
+          "type": "video",
+          "src": "assets/images/projects/little-italy-festival/LIF teaser JVT.mp4",
           "thumbnail": "assets/images/projects/little-italy-festival/thumb-teaser.png",
           "title": "Teaser diffusé en salle de spectacle"
         },
