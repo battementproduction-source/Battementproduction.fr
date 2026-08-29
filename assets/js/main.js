@@ -307,3 +307,29 @@ window.addEventListener('load', () => {
     initGoogleReviews();
   }
 });
+
+/* ---------------------------------------------------------------------
+   7. EFFET "SURÉLEVÉ" AU CENTRE DE L'ÉCRAN — équivalent tactile du hover,
+   pour les vignettes du portfolio et de la galerie projet sur mobile.
+--------------------------------------------------------------------- */
+(function centerHoverEffect() {
+  const isTouchDevice = window.matchMedia('(hover: none)').matches;
+  if (!isTouchDevice) return; // Sur ordinateur, le vrai :hover suffit, on ne fait rien
+
+  const cards = document.querySelectorAll('.hover-lift, .media-item');
+  if (!cards.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        entry.target.classList.toggle('is-centered', entry.isIntersecting);
+      });
+    },
+    {
+      threshold: 0.6, // La carte doit être visible à 60% pour être considérée "au centre"
+      rootMargin: '-35% 0px -35% 0px' // Ne compte que la bande centrale de l'écran
+    }
+  );
+
+  cards.forEach(card => observer.observe(card));
+})();

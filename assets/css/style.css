@@ -430,9 +430,13 @@ footer {
    COMPOSANTS RÉUTILISABLES
 ===================================================================== */
 .hover-lift { transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; }
-.hover-lift:hover {
+.hover-lift:hover,
+.hover-lift.is-centered {
   transform: translateY(-8px) scale(1.02);
   box-shadow: var(--glow-gold-strong);
+}
+.hover-lift.is-centered .card-overlay {
+  opacity: 1;
 }
 
 .decor-svg { position: absolute; pointer-events: none; z-index: 0; opacity: 0.9; }
