@@ -317,9 +317,9 @@ window.addEventListener('load', () => {
   if (!isTouchDevice) return; // Sur ordinateur, le vrai :hover suffit, on ne fait rien
 
   const OBSERVER_OPTIONS = {
-    threshold: 0.6,
-    rootMargin: '-35% 0px -35% 0px'
-  };
+  threshold: 0.5,
+  rootMargin: '-25% 0px -25% 0px'
+};
   const STAGGER_MS = 350; // délai entre chaque carte du relais, gauche → droite, ligne par ligne
 
   // --- Activités + galerie projet : effet immédiat, inchangé ---
