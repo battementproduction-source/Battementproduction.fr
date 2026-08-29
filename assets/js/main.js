@@ -316,20 +316,36 @@ window.addEventListener('load', () => {
   const isTouchDevice = window.matchMedia('(hover: none)').matches;
   if (!isTouchDevice) return; // Sur ordinateur, le vrai :hover suffit, on ne fait rien
 
-  const cards = document.querySelectorAll('.hover-lift, .media-item');
-  if (!cards.length) return;
+  const OBSERVER_OPTIONS = {
+    threshold: 0.6,
+    rootMargin: '-35% 0px -35% 0px'
+  };
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        entry.target.classList.toggle('is-centered', entry.isIntersecting);
-      });
-    },
-    {
-      threshold: 0.6, // La carte doit être visible à 60% pour être considérée "au centre"
-      rootMargin: '-35% 0px -35% 0px' // Ne compte que la bande centrale de l'écran
-    }
-  );
+  // --- Activités + galerie projet : effet immédiat, inchangé ---
+  const simpleCards = document.querySelectorAll('.activite-card, .media-item');
+  const simpleObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      entry.target.classList.toggle('is-centered', entry.isIntersecting);
+    });
+  }, OBSERVER_OPTIONS);
+  simpleCards.forEach(card => simpleObserver.observe(card));
 
-  cards.forEach(card => observer.observe(card));
+  // --- Cartes portfolio (home + page portfolio) : animation décalée de gauche à droite ---
+  const STAGGER_MS = 100; // délai entre chaque colonne
+  const portfolioCards = document.querySelectorAll('.portfolio-card, .card.hover-lift');
+  const portfolioObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const card = entry.target;
+
+      if (entry.isIntersecting) {
+        const siblings = Array.from(card.parentElement.children);
+        const columnCount = getComputedStyle(card.parentElement).gridTemplateColumns.split(' ').length || 1;
+        const column = siblings.indexOf(card) % columnCount;
+        setTimeout(() => card.classList.add('is-centered'), column * STAGGER_MS);
+      } else {
+        card.classList.remove('is-centered');
+      }
+    });
+  }, OBSERVER_OPTIONS);
+  portfolioCards.forEach(card => portfolioObserver.observe(card));
 })();

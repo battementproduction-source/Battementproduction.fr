@@ -183,8 +183,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     text-align: center; padding: 1rem; opacity: 0; transition: opacity 0.3s ease;
   }
-  .portfolio-card:hover .portfolio-card-overlay { opacity: 1; }
-  .portfolio-card:hover { box-shadow: var(--glow-gold-strong); transform: translateY(-6px); }
+  .portfolio-card:hover .portfolio-card-overlay,
+.portfolio-card.is-centered .portfolio-card-overlay { opacity: 1; }
+  .portfolio-card:hover,
+.portfolio-card.is-centered { box-shadow: var(--glow-gold-strong); transform: translateY(-6px); }
   .portfolio-card-overlay strong { font-size: clamp(0.9rem, 0.8rem + 0.3vw, 1.1rem); color: var(--color-title-cream); text-transform: uppercase; }
   .portfolio-card-overlay span { font-size: clamp(0.7rem, 0.65rem + 0.2vw, 0.8rem); color: var(--color-script-gold); margin-top: -0.2rem; }
   .voir-plus-wrap { grid-column: 1 / -1; text-align: center; margin-top: 1.5rem; }
