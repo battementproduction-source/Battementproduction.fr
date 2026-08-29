@@ -165,7 +165,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     text-align: center;
     white-space: pre-line;
   }
-  .service-card:hover .service-card-hover { opacity: 1; }
+    .service-card:hover .service-card-hover,
+  .service-card.is-centered .service-card-hover { opacity: 1; }
   @media (max-width: 900px) { .service-grid { grid-template-columns: 1fr; } }
 
   /* ---------- PORTFOLIO ---------- */
@@ -221,7 +222,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     font-weight: 700; font-size: clamp(0.9rem, 0.75rem + 0.5vw, 1.2rem); line-height: 1.6;
     opacity: 0; transition: opacity 0.3s ease;
   }
-  .profile-photo-frame:hover .profile-bio-hover { opacity: 1; }
+    .profile-photo-frame:hover .profile-bio-hover,
+  .profile-photo-frame.is-centered .profile-bio-hover { opacity: 1; }
   @media (max-width: 900px) {
   .portfolio-layout { grid-template-columns: 1fr; }
   .portfolio-grid { grid-template-columns: repeat(2,1fr); }

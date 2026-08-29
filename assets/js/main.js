@@ -323,7 +323,7 @@ window.addEventListener('load', () => {
   const STAGGER_MS = 350; // délai entre chaque carte du relais, gauche → droite, ligne par ligne
 
   // --- Activités + galerie projet : effet immédiat, inchangé ---
-  const simpleCards = document.querySelectorAll('.activite-card, .media-item, .btn.hover-lift');
+  const simpleCards = document.querySelectorAll('.activite-card, .media-item, .btn.hover-lift, .service-card, .profile-photo-frame');
   const simpleObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       entry.target.classList.toggle('is-centered', entry.isIntersecting);

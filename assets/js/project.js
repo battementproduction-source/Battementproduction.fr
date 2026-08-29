@@ -188,9 +188,10 @@ document.addEventListener('DOMContentLoaded', async () => {
               const ytEmbedMatch = item.url.match(/(?:youtube\.com\/(?:watch\?v=|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
               const driveMatch = item.url.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/);
 
-              const ratio = item.aspectRatio || (item.vertical ? '9/16' : '16/9');
+                            const ratio = item.aspectRatio || (item.vertical ? '9/16' : '16/9');
               const [ratioW, ratioH] = ratio.split('/').map(Number);
-              const fitStyle = `width:min(90vw, calc(90vh * ${ratioW} / ${ratioH})); height:min(90vh, calc(90vw * ${ratioH} / ${ratioW})); display:block; border-radius:12px; border:none;`;
+              const heightFloor = window.innerWidth < 700 ? '45vh' : '0px'; // Espace mini pour la barre d'outils Drive sur mobile
+              const fitStyle = `width:min(90vw, calc(90vh * ${ratioW} / ${ratioH})); height:max(${heightFloor}, min(90vh, calc(90vw * ${ratioH} / ${ratioW}))); display:block; border-radius:12px; border:none;`;
 
               if (ytEmbedMatch) {
                 const videoId = ytEmbedMatch[1];
