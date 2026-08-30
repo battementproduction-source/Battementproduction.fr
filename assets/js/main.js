@@ -379,3 +379,45 @@ window.addEventListener('load', () => {
   }, OBSERVER_OPTIONS);
   homeCards.forEach(card => homeObserver.observe(card));
 })();
+
+/* ---------------------------------------------------------------------
+   8. BANDEAU DE CONSENTEMENT COOKIES — Google Analytics ne se charge
+   qu'après acceptation explicite du visiteur.
+--------------------------------------------------------------------- */
+document.addEventListener("DOMContentLoaded", function() {
+  const banner = document.getElementById("cookie-banner");
+  if (!banner) return; // Sécurité si le bandeau n'existe pas sur cette page
+
+  const acceptBtn = document.getElementById("accept-cookies");
+  const declineBtn = document.getElementById("decline-cookies");
+
+  if (!localStorage.getItem("cookieConsent")) {
+    banner.style.display = "flex";
+  } else if (localStorage.getItem("cookieConsent") === "accepted") {
+    loadTracking();
+  }
+
+  acceptBtn.addEventListener("click", function() {
+    localStorage.setItem("cookieConsent", "accepted");
+    banner.style.display = "none";
+    loadTracking();
+  });
+
+  declineBtn.addEventListener("click", function() {
+    localStorage.setItem("cookieConsent", "declined");
+    banner.style.display = "none";
+  });
+});
+
+function loadTracking() {
+  const script = document.createElement("script");
+  script.src = "https://www.googletagmanager.com/gtag/js?id=G-K60Q6V0DMR";
+  script.async = true;
+  document.head.appendChild(script);
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('js', new Date());
+  gtag('config', 'G-K60Q6V0DMR');
+}
