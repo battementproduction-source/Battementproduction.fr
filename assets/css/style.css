@@ -533,7 +533,7 @@ footer {
   position: absolute; inset: 0; background: rgba(0,0,0,0.9);
 }
 .video-modal-close {
-  position: absolute; top: 2rem; right: 2rem; z-index: 501;
+  position: absolute; top: 2rem; right: 2rem; z-index: 502;
   width: 48px; height: 48px; border-radius: 50%;
   background: rgba(255,255,255,0.1); border: none;
   color: #fff; font-size: 2rem; line-height: 1;
