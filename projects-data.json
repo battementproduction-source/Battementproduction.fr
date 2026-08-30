@@ -172,20 +172,20 @@
         },
         {
           "type": "video",
-          "src": "assets/images/projects/bernadette-de-lourdes-IT/Vidéos-artistes.mp4",
+          "src": "assets/images/projects/bernadette-de-lourdes-IT/Videos-artistes.mp4",
           "thumbnail": "assets/images/projects/bernadette-de-lourdes-IT/teaser-artistes.png",
           "title": "Teaser artistes"
         },
         {
           "type": "video",
           "src": "assets/images/projects/bernadette-de-lourdes-IT/Première-BDL-Italie(VF).mp4",
-          "thumbnail": "assets/images/projects/bernadette-de-lourdes-IT/thumb-première.png",
+          "thumbnail": "assets/images/projects/bernadette-de-lourdes-IT/thumb-premiere.png",
           "title": "Recap Première Italienne (FR)"
         },
         {
           "type": "video",
           "src": "assets/images/projects/bernadette-de-lourdes-IT/Vlog-BDL-Italy.mp4",
-          "thumbnail": "assets/images/projects/bernadette-de-lourdes-IT/pré-première.png",
+          "thumbnail": "assets/images/projects/bernadette-de-lourdes-IT/pre-premiere.png",
           "title": "Captation avant la première"
         }
       ]
