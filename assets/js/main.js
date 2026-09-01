@@ -225,90 +225,91 @@ if (contactForm) {
 }
 
 /* ---------------------------------------------------------------------
-   6. GESTION DES AVIS GOOGLE PLACES (DYNAMIQUE)
+   6. GESTION DES AVIS GOOGLE (NOUVELLE API PLACES V1)
 --------------------------------------------------------------------- */
-function initGoogleReviews() {
-  // Votre VRAI Place ID validé
-  const PLACE_ID = 'ChIJv-06SXz_UicRYQ3QDlrcLRQ'; 
-  
+async function initGoogleReviews() {
   const track = document.getElementById('dynamic-reviews-track');
-  
-  // On vérifie juste que l'élément HTML existe bien sur la page
   if (!track) return;
 
-  // Création du service Google Places
-  const dummyElement = document.createElement('div');
-  const service = new google.maps.places.PlacesService(dummyElement);
+  // Votre Place ID et votre clé API
+  const placeId = 'ChIJv-06SXz_UicRYQ3QDlrcLRQ'; 
+  const apiKey = 'AIzaSyAsgpooBaHW2MaOFL_8CV_GJmPqgfTAV7s'; // Remplacez par votre clé si différente
 
-  service.getDetails({
-    placeId: PLACE_ID,
-    fields: ['rating', 'user_ratings_total', 'reviews']
-  }, (place, status) => {
-    if (status === google.maps.places.PlacesServiceStatus.OK && place) {
-      
-      // 1. Formatage de la note et du nombre d'avis
-      const ratingStr = place.rating ? place.rating.toString().replace('.', ',') : '-';
-      const totalReviews = place.user_ratings_total || 0;
-      
-      function setStars(val) {
-        if (!val) return '☆☆☆☆☆';
-        const fullStars = Math.round(val);
-        return '★'.repeat(fullStars) + '☆'.repeat(5 - fullStars);
-      }
-      const starsText = setStars(place.rating);
+  // URL de la NOUVELLE API (REST) avec les champs demandés
+  const url = `https://places.googleapis.com/v1/places/${placeId}?fields=reviews,rating,userRatingCount&key=${apiKey}&languageCode=fr`;
 
-      // Injection dans le Hero
-      if(document.getElementById('hero-score')) document.getElementById('hero-score').textContent = ratingStr;
-      if(document.getElementById('hero-stars')) document.getElementById('hero-stars').textContent = starsText;
-      if(document.getElementById('hero-count')) document.getElementById('hero-count').textContent = totalReviews;
-      
-      // Injection dans le Badge
-      if(document.getElementById('badge-score')) document.getElementById('badge-score').textContent = ratingStr;
-      if(document.getElementById('badge-stars')) document.getElementById('badge-stars').textContent = starsText;
-      if(document.getElementById('badge-count')) document.getElementById('badge-count').textContent = totalReviews;
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
 
-      // 2. Génération des cartes d'avis
-      if (place.reviews && place.reviews.length > 0) {
-        let reviewsHTML = '';
-        const colors = ['#8b919d', '#0F9D58', '#4285F4', '#DB4437', '#F4B400']; 
-        
-        place.reviews.forEach((review, index) => {
-          const initial = review.author_name ? review.author_name.charAt(0).toUpperCase() : '?';
-          const stars = setStars(review.rating);
-          const timeStr = review.relative_time_description || '';
-          const color = colors[index % colors.length];
-          const avatarUrl = review.profile_photo_url || '';
-          
-          reviewsHTML += `
-            <div class="review-card">
-              <div class="review-header">
-                <img src="${avatarUrl}" alt="${review.author_name}" class="review-avatar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                <div class="review-avatar-text" style="background:${color}; display:none;">${initial}</div>
-                <div class="review-author">
-                  <strong>${review.author_name}</strong>
-                  <span>${timeStr}</span>
-                </div>
-                <span class="stars">${stars}</span>
-              </div>
-              <p class="review-text">${review.text ? (review.text.substring(0, 160) + (review.text.length > 160 ? '...' : '')) : ''}</p>
-            </div>
-          `;
-        });
-
-        // Duplication des cartes pour préserver le carrousel infini
-        track.innerHTML = reviewsHTML + reviewsHTML;
-      }
-    } else {
-      console.error('Erreur lors de la récupération des avis Google. Statut :', status);
+    // Si Google renvoie toujours une erreur pour adresse masquée, elle s'affichera proprement ici
+    if (data.error) {
+      console.error("Erreur Nouvelle API Google :", data.error.message);
+      return; 
     }
-  });
+
+    // 1. Formatage de la note globale
+    const ratingStr = data.rating ? data.rating.toString().replace('.', ',') : '-';
+    const totalReviews = data.userRatingCount || 0;
+    
+    function setStars(val) {
+      if (!val) return '☆☆☆☆☆';
+      const fullStars = Math.round(val);
+      return '★'.repeat(fullStars) + '☆'.repeat(5 - fullStars);
+    }
+    const starsText = setStars(data.rating);
+
+    // Injection dans le Hero et le Badge (selon vos IDs HTML)
+    if(document.getElementById('hero-score')) document.getElementById('hero-score').textContent = ratingStr;
+    if(document.getElementById('hero-stars')) document.getElementById('hero-stars').textContent = starsText;
+    if(document.getElementById('hero-count')) document.getElementById('hero-count').textContent = totalReviews;
+    if(document.getElementById('badge-score')) document.getElementById('badge-score').textContent = ratingStr;
+    if(document.getElementById('badge-stars')) document.getElementById('badge-stars').textContent = starsText;
+    if(document.getElementById('badge-count')) document.getElementById('badge-count').textContent = totalReviews;
+
+    // 2. Génération des cartes d'avis avec VOTRE design
+    if (data.reviews && data.reviews.length > 0) {
+      let reviewsHTML = '';
+      const colors = ['#8b919d', '#0F9D58', '#4285F4', '#DB4437', '#F4B400']; 
+      
+      data.reviews.forEach((review, index) => {
+        // La nouvelle API formate légèrement différemment les données
+        const authorName = review.authorAttribution.displayName || '?';
+        const initial = authorName.charAt(0).toUpperCase();
+        const stars = setStars(review.rating);
+        const timeStr = review.relativePublishTimeDescription || '';
+        const color = colors[index % colors.length];
+        const avatarUrl = review.authorAttribution.photoUri || '';
+        const text = review.text ? review.text.text : '';
+        
+        reviewsHTML += `
+          <div class="review-card">
+            <div class="review-header">
+              ${avatarUrl 
+                ? `<img src="${avatarUrl}" alt="${authorName}" class="review-avatar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">`
+                : ''}
+              <div class="review-avatar-text" style="background:${color}; display:${avatarUrl ? 'none' : 'flex'};">${initial}</div>
+              <div class="review-author">
+                <strong>${authorName}</strong>
+                <span>${timeStr}</span>
+              </div>
+              <span class="stars">${stars}</span>
+            </div>
+            <p class="review-text">${text ? (text.substring(0, 160) + (text.length > 160 ? '...' : '')) : ''}</p>
+          </div>
+        `;
+      });
+
+      // Duplication des cartes pour le carrousel infini
+      track.innerHTML = reviewsHTML + reviewsHTML;
+    }
+  } catch (error) {
+    console.error('Erreur lors de la récupération REST :', error);
+  }
 }
 
-// Lancement automatique du chargement des avis dès que la page est prête
 window.addEventListener('load', () => {
-  if (typeof google !== 'undefined' && google.maps && google.maps.places) {
-    initGoogleReviews();
-  }
+  initGoogleReviews();
 });
 
 /* ---------------------------------------------------------------------

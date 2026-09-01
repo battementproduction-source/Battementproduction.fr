@@ -283,6 +283,10 @@
   .reviews-track { 
     display: flex; gap: 1.5rem; width: max-content; 
     animation: scroll-reviews 80s linear infinite; 
+    /* Bonus : Met en pause l'animation quand on passe la souris sur les avis */
+.reviews-track.is-animating:hover {
+  animation-play-state: paused;
+}
   }
   
   @keyframes scroll-reviews { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
