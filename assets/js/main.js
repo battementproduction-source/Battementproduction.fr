@@ -231,7 +231,7 @@ function renderReviews(data) {
   const track = document.getElementById('dynamic-reviews-track');
   if (!track) return;
 
-  const ratingStr = data.rating ? data.rating.toString().replace('.', ',') : '-';
+  const ratingStr = data.rating ? data.rating.toFixed(1).replace('.', ',') : '-';
   const totalReviews = data.userRatingCount || 0;
 
   function setStars(val) {
@@ -248,11 +248,18 @@ function renderReviews(data) {
   if (document.getElementById('badge-stars')) document.getElementById('badge-stars').textContent = starsText;
   if (document.getElementById('badge-count')) document.getElementById('badge-count').textContent = totalReviews;
 
-  if (data.reviews && data.reviews.length > 0) {
+    if (data.reviews && data.reviews.length > 0) {
     let reviewsHTML = '';
     const colors = ['#8b919d', '#0F9D58', '#4285F4', '#DB4437', '#F4B400'];
 
-    data.reviews.forEach((review, index) => {
+    // Priorise les avis qui ont un texte écrit (les avis sans texte passent en dernier)
+    const sortedReviews = [...data.reviews].sort((a, b) => {
+      const aHasText = a.text && a.text.text ? 1 : 0;
+      const bHasText = b.text && b.text.text ? 1 : 0;
+      return bHasText - aHasText;
+    });
+
+    sortedReviews.forEach((review, index) => {
       const authorName = review.authorAttribution.displayName || '?';
       const initial = authorName.charAt(0).toUpperCase();
       const stars = setStars(review.rating);
@@ -279,13 +286,18 @@ function renderReviews(data) {
       `;
     });
 
-    // Duplication des cartes pour le carrousel infini
+        // Duplication des cartes pour le carrousel infini
     track.innerHTML = reviewsHTML + reviewsHTML;
 
-    // Relance l'animation proprement, sans saut ni interruption
-    track.style.animation = 'none';
-    void track.offsetWidth; // force le reflow
-    track.style.animation = 'scroll-reviews 80s linear infinite';
+    // On ne (re)lance l'animation qu'une seule fois (au tout premier rendu),
+    // pour éviter que le carrousel ne saute en arrière quand les données
+    // fraîches remplacent le cache en arrière-plan.
+    if (!track.dataset.animated) {
+      track.style.animation = 'none';
+      void track.offsetWidth; // force le reflow
+      track.style.animation = 'scroll-reviews 80s linear infinite';
+      track.dataset.animated = 'true';
+    }
   }
 }
 

@@ -282,8 +282,10 @@
 
     .reviews-track { 
     display: flex; gap: 1.5rem; width: max-content; 
-    animation: scroll-reviews 80s linear infinite; 
+    animation: scroll-reviews 70s linear infinite; 
     animation-play-state: paused; /* on ne lance l'animation qu'une fois les avis chargés, cf. main.js */
+    will-change: transform;
+    backface-visibility: hidden;
   }
   
   @keyframes scroll-reviews { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
