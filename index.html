@@ -336,9 +336,14 @@
     border-bottom: none; 
     transition: color 0.3s ease; 
   }
-    @media (max-width: 700px) {
-    .rating-badge { padding: 1rem 1.5rem; gap: 1.2rem; margin: 1rem 0 1.5rem; }
-    .rating-separator { height: 50px; }
+        @media (max-width: 700px) {
+    .rating-badge { padding: 0.7rem 1rem; gap: 0.8rem; margin: 1rem 0 1.5rem; }
+    .rating-badge .score { font-size: 2rem; }
+    .rating-badge .note-label { font-size: 0.65rem; }
+    .rating-separator { height: 40px; }
+    .rating-right .stars { font-size: 0.9rem; }
+    .rating-right .avis-count { font-size: 0.8rem; }
+    .verifie-google { font-size: 0.7rem; }
 
     .reviews-track { gap: 0.7rem; }
     .review-card {
@@ -355,6 +360,16 @@
       -webkit-line-clamp: 4;
       line-clamp: 4;
       overflow: hidden;
+    }
+    .review-header {
+      flex-wrap: wrap;
+    }
+    .review-header .stars {
+      position: static;
+      width: 100%;
+      order: 3;
+      margin-top: 0.3rem;
+      text-align: left;
     }
   }
 
