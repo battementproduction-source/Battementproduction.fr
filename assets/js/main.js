@@ -228,11 +228,13 @@ if (contactForm) {
    6. GESTION DES AVIS GOOGLE PLACES (DYNAMIQUE)
 --------------------------------------------------------------------- */
 function initGoogleReviews() {
-  // ⚠️ Quand ta fiche sera validée, tu colleras ton Place ID entre les guillemets ci-dessous :
+  // Votre VRAI Place ID validé
   const PLACE_ID = 'ChIJv-06SXz_UicRYQ3QDlrcLRQ'; 
   
   const track = document.getElementById('dynamic-reviews-track');
-  if (!track || PLACE_ID === 'ChIJv-06SXz_UicRYQ3QDlrcLRQ') return;
+  
+  // On vérifie juste que l'élément HTML existe bien sur la page
+  if (!track) return;
 
   // Création du service Google Places
   const dummyElement = document.createElement('div');
@@ -248,7 +250,6 @@ function initGoogleReviews() {
       const ratingStr = place.rating ? place.rating.toString().replace('.', ',') : '-';
       const totalReviews = place.user_ratings_total || 0;
       
-      // Générateur d'étoiles (ex: ★★★★★)
       function setStars(val) {
         if (!val) return '☆☆☆☆☆';
         const fullStars = Math.round(val);
@@ -266,7 +267,7 @@ function initGoogleReviews() {
       if(document.getElementById('badge-stars')) document.getElementById('badge-stars').textContent = starsText;
       if(document.getElementById('badge-count')) document.getElementById('badge-count').textContent = totalReviews;
 
-      // 2. Génération des cartes d'avis si des avis existent
+      // 2. Génération des cartes d'avis
       if (place.reviews && place.reviews.length > 0) {
         let reviewsHTML = '';
         const colors = ['#8b919d', '#0F9D58', '#4285F4', '#DB4437', '#F4B400']; 
@@ -294,9 +295,11 @@ function initGoogleReviews() {
           `;
         });
 
-        // Duplication des cartes pour préserver l'effet de carrousel infini en CSS
+        // Duplication des cartes pour préserver le carrousel infini
         track.innerHTML = reviewsHTML + reviewsHTML;
       }
+    } else {
+      console.error('Erreur lors de la récupération des avis Google. Statut :', status);
     }
   });
 }
