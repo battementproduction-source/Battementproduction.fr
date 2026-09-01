@@ -280,13 +280,10 @@
     background: linear-gradient(to left, rgba(15, 12, 5, 0.75) 0%, rgba(15, 12, 5, 0) 100%);
   }
 
-  .reviews-track { 
+    .reviews-track { 
     display: flex; gap: 1.5rem; width: max-content; 
     animation: scroll-reviews 80s linear infinite; 
-    /* Bonus : Met en pause l'animation quand on passe la souris sur les avis */
-.reviews-track.is-animating:hover {
-  animation-play-state: paused;
-}
+    animation-play-state: paused; /* on ne lance l'animation qu'une fois les avis chargés, cf. main.js */
   }
   
   @keyframes scroll-reviews { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
@@ -339,8 +336,26 @@
     border-bottom: none; 
     transition: color 0.3s ease; 
   }
-  .reviews-link a:hover { 
-    color: var(--color-script-gold); 
+    @media (max-width: 700px) {
+    .rating-badge { padding: 1rem 1.5rem; gap: 1.2rem; margin: 1rem 0 1.5rem; }
+    .rating-separator { height: 50px; }
+
+    .reviews-track { gap: 0.7rem; }
+    .review-card {
+      width: 200px;
+      padding: 1rem;
+      padding-bottom: 2.6rem;
+      gap: 0.6rem;
+    }
+    .review-card::after { bottom: 1rem; left: 1rem; width: 46px; height: 15px; }
+        .review-text {
+      font-size: 0.78rem;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
+      line-clamp: 4;
+      overflow: hidden;
+    }
   }
 
 /* ---------- CONTACT ---------- */
