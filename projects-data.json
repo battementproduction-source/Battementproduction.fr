@@ -1,6 +1,75 @@
 {
   "projects": [
     {
+      "id": "pape-lourdes",
+      "slug": "pape-lourdes",
+      "title": "La venue du Pape en France à Lourdes",
+      "logo": "assets/images/projects/pape-lourdes/pape-lourdes.png",
+      "brandColor": "rgba(220, 173, 72, 1)",
+      "excerpt": "J'ai accompagné la comédie musicale Bernadette de Lourdes à Lourdes, à l'occasion de la venue du Pape en France.\nVidéos diffusées pendant le show et passées sur France TV, captation du spectacle et de la venue du Pape, puis montage des vidéos.",
+      "highlights": [
+        {
+          "label": "VIDÉOS DE SCÈNE",
+          "text": "• Réalisation des vidéos diffusées pendant le show. (diffusées sur France TV)"
+        },
+        {
+          "label": "CAPTATION & TOURNAGE SUR SITE",
+          "text": "• Captation de la représentation de la comédie musicale Bernadette de Lourdes.\n• Captation de la venue du Pape et de Eva Molenmaker chantant devant lui (millions de vues à travers le monde)."
+        }
+      ],
+      "gallery": [
+        {
+          "type": "link",
+          "url": "https://www.instagram.com/reel/DdzGP6nsPl9/?hl=fr",
+          "thumbnail": "assets/images/projects/pape-lourdes/eva-pape1-thumb.png",
+          "title": "Eva Molenmaker chante devant le Pape"
+        },
+        {
+          "type": "link",
+          "url": "https://www.instagram.com/reel/DeHlF2is9K-/?hl=fr",
+          "thumbnail": "assets/images/projects/pape-lourdes/eva-pape2-thumb.png",
+          "title": "Eva Molenmaker chante devant le Pape (autre chanson)"
+        },
+        {
+          "type": "video",
+          "src": "assets/images/projects/pape-lourdes/intro.mp4",
+          "thumbnail": "assets/images/projects/pape-lourdes/intro-thumb.png",
+          "title": "Vidéo d'intro du show"
+        },
+        {
+          "type": "video",
+          "src": "assets/images/projects/pape-lourdes/voir.mp4",
+          "thumbnail": "assets/images/projects/pape-lourdes/voir-thumb.png",
+          "title": "Exemple de vidéo jouée pendant le show"
+        }
+      ]
+    },
+    {
+      "id": "grands-discours",
+      "slug": "grands-discours",
+      "title": "Aux Grands Maux les Grands Discours",
+      "logo": "assets/images/projects/grands-discours/affiche.png",
+      "brandColor": "rgba(220, 173, 72, 1)",
+      "excerpt": "La pièce de théâtre à grand succès au Canada, Aux Grands Maux les Grands Discours arrive à Paris, au théâtre de la Gaîté Rive Gauche.\nJ'accompagne la promotion et la communication de la pièce, avec toute la dimension création de contenus.",
+      "highlights": [
+        {
+          "label": "CRÉATION DE CONTENUS",
+          "text": "• Tournage de capsules pour les réseaux sociaux, puis montage.\n• Réalisation de la bande-annonce de la pièce."
+        },
+        {
+          "label": "CAPTATION",
+          "text": "• Captation de la pièce pour la diffuser."
+        }
+      ],
+      "gallery": [
+        {
+          "type": "link",
+          "url": "https://www.youtube.com/watch?v=XiRATaeJBCY",
+          "title": "Bande-annonce"
+        }
+      ]
+    },
+    {
       "id": "radio-fuego",
       "slug": "radio-fuego",
       "title": "Radio Fuego",
@@ -32,6 +101,12 @@
     "src": "assets/images/projects/radio-fuego/presentation.mp4",
     "thumbnail": "assets/images/projects/radio-fuego/presentation-thumb.png",
     "title": "Vidéo de présentation"
+  },
+  {
+    "type": "video",
+    "src": "assets/images/projects/radio-fuego/convention-fuego.mp4",
+    "thumbnail": "assets/images/projects/radio-fuego/thumb-convention-fuego.png",
+    "title": "Récap séminaire Corporate"
   },
   {
     "type": "link",
