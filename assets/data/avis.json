@@ -1,0 +1,39 @@
+{
+  "majLe": "2026-11-07T01:16:52.358Z",
+  "note": 5,
+  "total": 8,
+  "avis": [
+    {
+      "nom": "Benjamin LI",
+      "photo": "https://lh3.googleusercontent.com/a-/ALV-UjVbjl17zxoSrfyRIIs_nyWVKJtMuD3BsxUUxWT3YGyFjdTZo-_eXQ=s128-c0x00000000-cc-rp-mo",
+      "note": 5,
+      "texte": "Très professionnel, travail de qualité, je reviendrai sans hésiter. Je recommande !",
+      "date": "il y a 2 semaines",
+      "publie": "2026-10-23T22:56:24.755237144Z"
+    },
+    {
+      "nom": "Fahd Fayala",
+      "photo": "https://lh3.googleusercontent.com/a/ACg8ocLlxRv5-zJM8FYDWVtkqHtgLkqUjWb4FS44_Cr-Q1mVDbvw_g=s128-c0x00000000-cc-rp-mo",
+      "note": 5,
+      "texte": "Franchement, c’est exceptionnel ! Très beau travail, professionnel et dynamique. Je recommande vivement !",
+      "date": "il y a 2 mois",
+      "publie": "2026-09-02T12:07:53.062160661Z"
+    },
+    {
+      "nom": "Romain Paolella",
+      "photo": "https://lh3.googleusercontent.com/a-/ALV-UjWHVpj9uEV4Ojr8HfufLJ4QBzeAZfuGPnN4dG5TO8FIsSe1ZTJA=s128-c0x00000000-cc-rp-mo",
+      "note": 5,
+      "texte": "J’ai eu la chance de travailler avec Elias sur le Fuego Festival ainsi que sur plusieurs autres projets, et je peux témoigner de la qualité exceptionnelle de son travail.\n\nC’est un véritable talent, avec une très belle sensibilité artistique et un vrai sens du détail. Il sait parfaitement mettre en valeur un projet, créer de l’émotion et apporter une véritable dimension cinématographique à ses réalisations.\n\nAu-delà de son talent, c’est aussi quelqu’un de passionné, sérieux et très agréable avec qui travailler. Je recommande Battement Production les yeux fermés à toute personne ou entreprise à la recherche d’un travail audiovisuel de grande qualité.\n\nBravo pour ce lancement Elias, et surtout beaucoup de réussite pour la suite !",
+      "date": "il y a 2 mois",
+      "publie": "2026-09-01T10:56:45.401007665Z"
+    },
+    {
+      "nom": "Chloé SORIANO",
+      "photo": "https://lh3.googleusercontent.com/a-/ALV-UjW1xtRdNzrcvIvRP91oRHoglJdYjCmjNrucf0krsKbZzUrjnq-C=s128-c0x00000000-cc-rp-mo-ba2",
+      "note": 5,
+      "texte": "J’ai eu l’occasion de travailler avec Elias pendant plusieurs semaines, et ce fut un véritable plaisir. Il est très professionnel, réactif et respecte toujours les délais annoncés. Les contenus livrés étaient systématiquement qualitatifs et parfaitement conformes à mes attentes, je n'ai jamais eu rien à redire !\n\nJe recommande Batement Production à 100 % pour leur sérieux et la qualité de leur travail.",
+      "date": "il y a 2 mois",
+      "publie": "2026-08-31T21:01:00.519828881Z"
+    }
+  ]
+}

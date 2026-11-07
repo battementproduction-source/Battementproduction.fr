@@ -1,0 +1,31 @@
+# Récupère les avis Google une fois par semaine et les enregistre dans le site.
+# Coût : 1 appel par semaine (≈ 4-5 par mois), dans la partie gratuite de Google.
+# Pour lancer à la main : onglet "Actions" sur GitHub → "Avis Google" → "Run workflow".
+name: Avis Google
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'   # chaque lundi à 6 h UTC (7 h ou 8 h à Paris)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  avis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Récupérer les avis
+        run: node scripts/maj-avis.mjs
+        env:
+          GOOGLE_PLACES_KEY: ${{ secrets.GOOGLE_PLACES_KEY }}
+      - name: Enregistrer s'il y a du nouveau
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add assets/data/avis.json
+          git diff --cached --quiet || (git commit -m "Avis Google : mise à jour automatique" && git push)

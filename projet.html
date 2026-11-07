@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projet — Battement Production</title>
+<meta name="description" content="Un projet de Battement Production, agence de production audiovisuelle.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://battementproduction.fr/assets/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon.png">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Serif:ital@1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/v2.css">
+</head>
+<body>
+
+<header class="nav">
+  <a href="index.html" class="nav-logo"><img src="assets/img/Logo-vertical.png" alt=""><span>Battement Production</span></a>
+  <nav class="nav-links">
+    <a href="portfolio.html" class="active">Le portfolio</a>
+    <a href="index.html#methode">Méthode</a>
+    <a href="index.html#devis">Devis</a>
+    <a href="index.html#rdv">Contact</a>
+  </nav>
+  <a href="index.html#rdv" class="btn btn-gold btn-sm">Prendre RDV</a>
+  <button class="nav-burger" aria-label="Menu"><span></span><span></span></button>
+</header>
+<div class="mobile-menu">
+  <a href="portfolio.html">Le portfolio</a>
+  <a href="index.html#methode">Méthode</a>
+  <a href="index.html#devis">Devis</a>
+  <a href="index.html#rdv">Contact</a>
+  <a href="index.html#rdv" class="btn btn-gold">Prendre RDV <span class="arr">→</span></a>
+</div>
+
+<main class="pj" id="projet">
+  <div class="wrap">
+    <a href="portfolio.html" class="pj-back">← Retour au portfolio</a>
+
+    <!-- Vidéo principale -->
+    <div class="pj-main" id="pj-main"></div>
+    <p class="pj-main-title" id="pj-main-title"></p>
+
+    <!-- Présentation + rôle -->
+    <div class="pj-body">
+      <div>
+        <div class="pj-meta" id="pj-meta"></div>
+        <h1 id="pj-title"></h1>
+        <p class="pj-client" id="pj-client"></p>
+        <p class="pj-intro" id="pj-intro"></p>
+      </div>
+      <aside class="pj-role">
+        <span class="eyebrow">Mon rôle</span>
+        <div id="pj-role"></div>
+      </aside>
+    </div>
+
+    <!-- Les autres vidéos du projet -->
+    <section class="pj-more" id="pj-more-wrap">
+      <h2 class="pj-h2">Les autres <em>vidéos</em> du projet</h2>
+      <div class="pj-grid" id="pj-grid"></div>
+    </section>
+
+    <!-- Projet précédent / suivant -->
+    <nav class="pj-nav" id="pj-nav"></nav>
+
+    <!-- Projets associés -->
+    <section class="pj-related">
+      <div class="section-head" style="margin-bottom:1.2rem">
+        <h2 class="pj-h2">Dans le même <em>univers</em></h2>
+        <a href="portfolio.html" class="btn btn-ghost btn-sm">Tout le portfolio</a>
+      </div>
+      <div class="pf-grid" id="pj-related" style="padding-bottom:0"></div>
+    </section>
+
+    <div class="cta-band" style="margin-top:3rem">
+      <span class="eyebrow">Votre tour</span>
+      <h2 style="margin-top:1rem">Un projet <em>dans cet esprit ?</em></h2>
+      <div class="hero-ctas">
+        <a href="index.html#devis" class="btn btn-gold">Construire mon devis <span class="arr">→</span></a>
+        <a href="index.html#rdv" class="btn btn-ghost">Prendre RDV</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p class="footer-tag">Des vidéos qui font <em>battre le cœur.</em></p>
+      <p class="footer-mini">Agence de production audiovisuelle · Paris &amp; Île-de-France</p>
+    </div>
+    <div class="footer-links">
+      <div><b>Navigation</b><a href="portfolio.html">Le portfolio</a><a href="index.html#methode">Méthode</a><a href="index.html#devis">Devis</a><a href="index.html#rdv">Prendre RDV</a></div>
+      <div><b>Contact</b><a href="mailto:battementproduction@gmail.com">battementproduction@gmail.com</a><a href="tel:+33620615866">06 20 61 58 66</a></div>
+      <div><b>Réseaux</b><a href="https://www.instagram.com/battement.production/" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/company/battementproduction" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.facebook.com/profile.php?id=61593981840502" target="_blank" rel="noopener">Facebook</a></div>
+    </div>
+  </div>
+  <div class="wrap footer-legal">
+    <span>© 2026 Battement Production — SIRET 99189218300013</span>
+    <a href="mentions.html">Mentions légales</a>
+  </div>
+</footer>
+
+<!-- Agrandissement des visuels -->
+<div class="player" id="lightbox"><div class="player-box"><div class="player-top"><b id="lb-title"></b><button class="player-close" aria-label="Fermer">✕</button></div><img id="lb-img" alt="" style="width:100%;max-height:80vh;object-fit:contain;border-radius:16px"></div></div>
+
+<div class="cursor">Voir ▶</div>
+<script src="assets/js/v2.js"></script>
+<script src="assets/js/projets-data.js"></script>
+<script src="assets/js/projet.js"></script>
+</body>
+</html>
