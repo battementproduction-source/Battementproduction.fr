@@ -93,7 +93,7 @@ if (title) {
   $$('.w-solo', title).forEach(el => { el.classList.add('w'); el.style.animationDelay = `${.15 + i++ * .07}s`; });
 }
 
-/* ---------- Vidéo de présentation : version verticale sur téléphone, horizontale sur ordinateur ---------- */
+/* ---------- Vidéo de présentation : lecture automatique fiable (Safari iPhone compris) ---------- */
 (() => {
   const v = $('#hero-video');
   if (!v) return;
@@ -107,7 +107,7 @@ if (title) {
   const prep = el => { el.muted = true; el.defaultMuted = true; el.playsInline = true; el.setAttribute('muted', ''); };
   prep(v); if (bg) prep(bg);
   const pick = () => {
-    const src = mq.matches ? v.dataset.mobile : v.dataset.pc;
+    const src = (mq.matches && v.dataset.mobile) || v.dataset.pc; // même vidéo horizontale partout (data-mobile facultatif)
     if (v.getAttribute('src') !== src) { v.setAttribute('src', src); v.load(); }
     if (bg) {
       if (mq.matches && !bg.getAttribute('src')) { bg.setAttribute('src', bg.dataset.mobile); bg.load(); }

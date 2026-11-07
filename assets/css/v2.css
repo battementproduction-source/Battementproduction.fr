@@ -1176,15 +1176,24 @@ h2 { font-size: clamp(1.9rem, 1.2rem + 2.3vw, 3.2rem); }
   .slot-list { grid-template-columns: repeat(3, 1fr); width: 100%; }
 }
 
-/* --- Vidéo de présentation sur téléphone : cadre vertical (vidéo hero-mobile en 9:16) --- */
+/* --- Téléphone : vidéo de présentation horizontale en entier (16:9) + pilules autour, comme sur ordinateur --- */
 @media (max-width: 760px) {
-  .hero-frame { aspect-ratio: 9/16; max-width: 420px; }
+  .hero-stage { padding-top: 1.4rem; padding-bottom: 1.6rem; }
+  .hero-frame { aspect-ratio: 16/9; border-radius: 18px; }
+  .frame-corners { inset: 22px 30px; }
+  .frame-corners::before, .frame-corners::after { width: 16px; height: 16px; }
+  .frame-ui { font-size: .58rem; }
+  .frame-ui > * { padding: .32rem .5rem; gap: .3rem; }
+  .frame-ui .tl, .frame-ui .tr { top: 8px; } .frame-ui .tl { left: 8px; } .frame-ui .tr { right: 8px; }
+  .frame-ui .bl { display: none; }
+  .float-tag { display: block; font-size: .68rem; padding: .32rem .62rem; box-shadow: 0 8px 18px -8px var(--c); }
+  .hero-stage .float-tag:nth-of-type(1) { left: 3% !important; top: 0 !important; }
+  .hero-stage .float-tag:nth-of-type(2) { right: 2% !important; top: 42% !important; }
+  .hero-stage .float-tag:nth-of-type(3) { left: 5% !important; bottom: 0 !important; }
 }
-
-/* --- Téléphone : cadre plus compact (4:5) ; la vidéo verticale entière au centre, fond flouté autour --- */
-.hero-bg { display: none; }
 @media (max-width: 760px) {
-  .hero-frame { aspect-ratio: 4/5; max-width: 340px; background: #000; }
-  .hero-frame .hero-bg { display: block; position: absolute; inset: -6%; width: 112%; height: 112%; object-fit: cover; opacity: .85; }
-  .hero-frame #hero-video { position: relative; object-fit: contain; }
+  .vid-ctrls { bottom: 8px; gap: .4rem; }
+  .vid-ctrls .pause-btn { width: 30px; height: 30px; }
+  .vid-ctrls .sound-btn { height: 30px; font-size: .66rem; padding: 0 .7rem 0 .6rem; gap: .3rem; }
+  .vid-ctrls svg { width: 14px; height: 14px; }
 }
