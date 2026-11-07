@@ -173,11 +173,13 @@ const DEVIS_TYPES = [
 const OPTIONS = ['Déclinaisons Reels 9:16', 'Format carré 1:1', 'Sous-titres', 'Musique sous licence', 'Livraison express'];
 const DUREES = ['< 1 min', '1 – 3 min', '3 – 10 min', '10 min +'];
 const EFFETS = ['Aucun', 'Motion 2D', 'Effets 3D', '2D + 3D'];
+const NB_MAX = 20; // au-delà : « 20+ »
 const NEUTRE = { acc: '#F3CD44', acc2: '#D8AD48' }; // couleurs tant que rien n'est choisi
 
 const devis = $('#devis');
 if (devis) {
-  const state = { type: null, duree: null, jours: 1, fx: null, opts: new Set() };
+  const state = { type: null, nb: 1, duree: null, jours: 1, fx: null, opts: new Set() };
+  const nbTxt = () => state.nb >= NB_MAX ? `${NB_MAX}+ vidéos` : `${state.nb} vidéo${state.nb > 1 ? 's' : ''}`;
   const typesEl = $('#types'), dureeEl = $('#duree'), optsEl = $('#opts'), fxEl = $('#fx');
 
   typesEl.innerHTML = DEVIS_TYPES.map(t => `
@@ -203,6 +205,8 @@ if (devis) {
     $$('button', dureeEl).forEach(b => b.classList.toggle('on', b.textContent === state.duree));
     $$('button', fxEl).forEach(b => b.classList.toggle('on', b.textContent === state.fx));
     $$('button', optsEl).forEach(b => b.classList.toggle('on', state.opts.has(b.textContent)));
+    $('#nb').textContent = state.nb >= NB_MAX ? NB_MAX + '+' : state.nb;
+    $('#nb-note').textContent = state.nb >= NB_MAX ? `${NB_MAX} vidéos ou plus.` : `${state.nb} vidéo${state.nb > 1 ? 's' : ''} à livrer.`;
     $('#jours').textContent = state.jours === 0 ? 'Aucun' : state.jours;
     $('#jours-note').textContent = state.jours === 0 ? 'Images déjà tournées : post-production seule.' : `${state.jours} jour${state.jours > 1 ? 's' : ''} avec l’équipe sur place.`;
 
@@ -224,20 +228,23 @@ if (devis) {
     $('#sum-title').textContent = t ? t.label : 'Votre projet vidéo';
     $('#sum-list').innerHTML = `
       <li><span>Type</span><span>${t ? t.label : '—'}</span></li>
-      <li><span>Durée finale</span><span>${state.duree || '—'}</span></li>
+      <li><span>Vidéos</span><span>${nbTxt()}</span></li>
+      <li><span>Durée par vidéo</span><span>${state.duree || '—'}</span></li>
       <li><span>Tournage</span><span>${state.jours === 0 ? 'Post-prod seule' : state.jours + ' jour' + (state.jours > 1 ? 's' : '')}</span></li>
       <li><span>Effets</span><span>${state.fx || '—'}</span></li>
       <li><span>Options</span><span>${state.opts.size ? [...state.opts].join(', ') : '—'}</span></li>`;
-    const done = [!!t, !!state.duree, !!t, !!state.fx, state.opts.size > 0];
+    const done = [!!t, !!t, !!state.duree, !!t, !!state.fx, state.opts.size > 0];
     $$('.progress i').forEach((i, k) => i.classList.toggle('on', done[k]));
     $$('.cfg-step').forEach((s, k) => s.classList.toggle('done', !!done[k]));
-    $('#sum-steps').textContent = `${done.filter(Boolean).length} sur 5`;
+    $('#sum-steps').textContent = `${done.filter(Boolean).length} sur 6`;
   }
 
   fxEl.addEventListener('click', e => { if (e.target.matches('button')) { state.fx = e.target.textContent; render(); } });
   typesEl.addEventListener('click', e => { const b = e.target.closest('.type'); if (b) { state.type = b.dataset.id; render(); } });
   dureeEl.addEventListener('click', e => { if (e.target.matches('button')) { state.duree = e.target.textContent; render(); } });
   optsEl.addEventListener('click', e => { if (e.target.matches('button')) { const o = e.target.textContent; state.opts.has(o) ? state.opts.delete(o) : state.opts.add(o); render(); } });
+  $('#nb-minus').addEventListener('click', () => { state.nb = Math.max(1, state.nb - 1); render(); });
+  $('#nb-plus').addEventListener('click', () => { state.nb = Math.min(NB_MAX, state.nb + 1); render(); });
   $('#minus').addEventListener('click', () => { state.jours = Math.max(0, state.jours - 1); render(); });
   $('#plus').addEventListener('click', () => { state.jours = Math.min(10, state.jours + 1); render(); });
 
@@ -274,7 +281,8 @@ if (devis) {
       'DEMANDE DE DEVIS — site Battement Production',
       '',
       `Type de projet : ${t ? t.label : 'non précisé'}`,
-      `Durée finale : ${state.duree || 'non précisée'}`,
+      `Nombre de vidéos : ${nbTxt()}`,
+      `Durée de chaque vidéo : ${state.duree || 'non précisée'}`,
       `Tournage : ${state.jours === 0 ? 'aucun (post-production seule)' : state.jours + ' jour(s)'}`,
       `Effets visuels : ${state.fx || 'non précisé'}`,
       `Options : ${state.opts.size ? [...state.opts].join(', ') : 'aucune'}`,

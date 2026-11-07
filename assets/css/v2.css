@@ -1023,7 +1023,7 @@ h2 { font-size: clamp(1.9rem, 1.2rem + 2.3vw, 3.2rem); }
 .summary-body { flex: 1; display: flex; flex-direction: column; }
 .summary .price { margin-top: auto; padding-top: .8rem; }
 .cfg-panel { display: flex; flex-direction: column; }
-.cfg-step + .cfg-step, .cfg-pair + .cfg-step, .cfg-step + .cfg-pair { margin-top: 1rem; }
+.cfg-step + .cfg-step, .cfg-pair + .cfg-step, .cfg-step + .cfg-pair, .cfg-pair + .cfg-pair { margin-top: 1rem; }
 .cfg-pair { display: grid; grid-template-columns: auto 1fr; gap: 1.2rem; align-items: start; }
 .cfg-pair .cfg-step + .cfg-step { margin-top: 0; }
 .types .thumb { aspect-ratio: 16/8; }

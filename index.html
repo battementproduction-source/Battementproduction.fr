@@ -239,21 +239,28 @@
         </div>
         <div class="cfg-pair">
           <div class="cfg-step">
-            <p class="cfg-label"><span>2</span>Durée de la vidéo finale</p>
-            <div class="seg" id="duree"></div>
+            <p class="cfg-label"><span>2</span>Nombre de vidéos</p>
+            <div class="stepper"><button id="nb-minus" aria-label="Moins">−</button><output id="nb">1</output><button id="nb-plus" aria-label="Plus">+</button></div>
+            <p class="stepper-note" id="nb-note"></p>
           </div>
           <div class="cfg-step">
-            <p class="cfg-label"><span>3</span>Jours de tournage</p>
+            <p class="cfg-label"><span>3</span>Durée de chaque vidéo</p>
+            <div class="seg" id="duree"></div>
+          </div>
+        </div>
+        <div class="cfg-pair">
+          <div class="cfg-step">
+            <p class="cfg-label"><span>4</span>Jours de tournage</p>
             <div class="stepper"><button id="minus" aria-label="Moins">−</button><output id="jours">1</output><button id="plus" aria-label="Plus">+</button></div>
             <p class="stepper-note" id="jours-note"></p>
           </div>
+          <div class="cfg-step">
+            <p class="cfg-label"><span>5</span>Effets visuels</p>
+            <div class="seg" id="fx"></div>
+          </div>
         </div>
         <div class="cfg-step">
-          <p class="cfg-label"><span>4</span>Effets visuels</p>
-          <div class="seg" id="fx"></div>
-        </div>
-        <div class="cfg-step">
-          <p class="cfg-label"><span>5</span>Options</p>
+          <p class="cfg-label"><span>6</span>Options</p>
           <div class="chips" id="opts"></div>
         </div>
         <p class="cfg-foot">Rien n'est engagé : vous recevez un devis détaillé, vous décidez ensuite.</p>
@@ -269,10 +276,10 @@
           <span class="tag" id="sum-tag" hidden></span>
         </div>
         <div class="summary-body">
-          <div class="summary-kicker"><span>Votre sélection</span><span class="pill-acc" id="sum-steps">0 sur 5</span></div>
+          <div class="summary-kicker"><span>Votre sélection</span><span class="pill-acc" id="sum-steps">0 sur 6</span></div>
           <h3 id="sum-title">Votre projet vidéo</h3>
           <ul id="sum-list"></ul>
-          <div class="progress"><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="progress"><i></i><i></i><i></i><i></i><i></i><i></i></div>
           <div class="price"><b>Sur devis</b><small>réponse sous 24 h ouvrées</small></div>
           <button class="btn btn-acc" id="ask" style="margin-top:.8rem">Demander mon devis <span class="arr">→</span></button>
           <a href="#rdv" class="alt">Je préfère en parler 20 minutes</a>
