@@ -97,15 +97,33 @@ if (title) {
 (() => {
   const v = $('#hero-video');
   if (!v) return;
+  const bg = $('.hero-bg');                       // fond flouté (téléphone seulement)
   const mq = matchMedia('(max-width: 760px)');
+  let userPaused = false;                         // vrai seulement si le visiteur a cliqué sur pause
+  v.addEventListener('pause', () => { if (v.dataset.byUser) userPaused = true; delete v.dataset.byUser; });
+  v.addEventListener('play', () => { userPaused = false; if (bg && mq.matches) bg.play().catch(() => {}); });
+  v.addEventListener('pause', () => bg && bg.pause());
+  const tryPlay = () => { if (!userPaused && v.paused) { v.muted = v.muted; v.play().catch(() => {}); } };
+  const prep = el => { el.muted = true; el.defaultMuted = true; el.playsInline = true; el.setAttribute('muted', ''); };
+  prep(v); if (bg) prep(bg);
   const pick = () => {
     const src = mq.matches ? v.dataset.mobile : v.dataset.pc;
-    if (v.getAttribute('src') === src) return;
-    v.setAttribute('src', src);
-    v.play().catch(() => {});
+    if (v.getAttribute('src') !== src) { v.setAttribute('src', src); v.load(); }
+    if (bg) {
+      if (mq.matches && !bg.getAttribute('src')) { bg.setAttribute('src', bg.dataset.mobile); bg.load(); }
+      if (!mq.matches) bg.pause();
+    }
+    tryPlay();
   };
   pick();
   mq.addEventListener('change', pick);
+  // Safari peut refuser le premier démarrage : on réessaie dès que la vidéo est prête…
+  ['loadeddata', 'canplay'].forEach(ev => v.addEventListener(ev, tryPlay));
+  // …et au premier geste du visiteur (toucher, défilement), si elle est encore à l'arrêt
+  const kick = () => { tryPlay(); if (!v.paused) ['touchstart', 'scroll', 'click'].forEach(ev => removeEventListener(ev, kick)); };
+  ['touchstart', 'scroll', 'click'].forEach(ev => addEventListener(ev, kick, { passive: true }));
+  // fond flouté calé sur la vidéo principale
+  if (bg) v.addEventListener('timeupdate', () => { if (mq.matches && Math.abs(bg.currentTime - v.currentTime) > .3) bg.currentTime = v.currentTime; });
 })();
 
 /* ---------- Cadre vidéo du hero : zoom au scroll + tags en parallaxe ---------- */
@@ -408,7 +426,7 @@ if (soundBtn && heroVid) {
     syncPause();
   });
   const syncPause = () => { pauseBtn.classList.toggle('paused', heroVid.paused); pauseBtn.setAttribute('aria-label', heroVid.paused ? 'Lecture' : 'Mettre en pause'); };
-  pauseBtn.addEventListener('click', () => { heroVid.paused ? heroVid.play().catch(() => {}) : heroVid.pause(); });
+  pauseBtn.addEventListener('click', () => { if (heroVid.paused) heroVid.play().catch(() => {}); else { heroVid.dataset.byUser = '1'; heroVid.pause(); } });
   heroVid.addEventListener('play', syncPause); heroVid.addEventListener('pause', syncPause);
 }
 

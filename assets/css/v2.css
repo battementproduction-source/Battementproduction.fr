@@ -1180,3 +1180,11 @@ h2 { font-size: clamp(1.9rem, 1.2rem + 2.3vw, 3.2rem); }
 @media (max-width: 760px) {
   .hero-frame { aspect-ratio: 9/16; max-width: 420px; }
 }
+
+/* --- Téléphone : cadre plus compact (4:5) ; la vidéo verticale entière au centre, fond flouté autour --- */
+.hero-bg { display: none; }
+@media (max-width: 760px) {
+  .hero-frame { aspect-ratio: 4/5; max-width: 340px; background: #000; }
+  .hero-frame .hero-bg { display: block; position: absolute; inset: -6%; width: 112%; height: 112%; object-fit: cover; opacity: .85; }
+  .hero-frame #hero-video { position: relative; object-fit: contain; }
+}
