@@ -1169,3 +1169,9 @@ h2 { font-size: clamp(1.9rem, 1.2rem + 2.3vw, 3.2rem); }
 .slot-list { display: grid; gap: .4rem; overflow-y: auto; padding-right: 4px; max-height: 290px; scrollbar-width: thin; }
 #cal-confirm.disabled { opacity: .4; pointer-events: none; }
 @media (max-width: 520px) { .slot-list { grid-template-columns: repeat(3, 1fr); max-height: 220px; } .cal-slots { max-height: none; } }
+
+/* --- RDV téléphone : la liste des horaires prend toute la largeur --- */
+@media (max-width: 600px) {
+  .cal-slots { display: flex; flex-direction: column; }
+  .slot-list { grid-template-columns: repeat(3, 1fr); width: 100%; }
+}
