@@ -1186,10 +1186,12 @@ h2 { font-size: clamp(1.9rem, 1.2rem + 2.3vw, 3.2rem); }
   .frame-ui > * { padding: .32rem .5rem; gap: .3rem; }
   .frame-ui .tl, .frame-ui .tr { top: 8px; } .frame-ui .tl { left: 8px; } .frame-ui .tr { right: 8px; }
   .frame-ui .bl { display: none; }
-  .float-tag { display: block; font-size: .68rem; padding: .32rem .62rem; box-shadow: 0 8px 18px -8px var(--c); }
-  .hero-stage .float-tag:nth-of-type(1) { left: 3% !important; top: 0 !important; }
-  .hero-stage .float-tag:nth-of-type(2) { right: 2% !important; top: 42% !important; }
-  .hero-stage .float-tag:nth-of-type(3) { left: 5% !important; bottom: 0 !important; }
+  .hero-stage { padding-top: 2.7rem; padding-bottom: 2.9rem; }
+  .float-tag { display: block; font-size: .68rem; padding: .32rem .62rem; box-shadow: 0 8px 18px -8px var(--c); transform: rotate(var(--rot, 0deg)); }
+  /* autour du cadre, jamais dessus : deux au-dessus, une en dessous */
+  .hero-stage .float-tag:nth-of-type(1) { left: 5% !important; right: auto !important; top: 0 !important; bottom: auto !important; }
+  .hero-stage .float-tag:nth-of-type(2) { right: 5% !important; left: auto !important; top: .35rem !important; bottom: auto !important; }
+  .hero-stage .float-tag:nth-of-type(3) { left: 50% !important; right: auto !important; bottom: .2rem !important; top: auto !important; translate: -50% 0; }
 }
 @media (max-width: 760px) {
   .vid-ctrls { bottom: 8px; gap: .4rem; }
@@ -1197,3 +1199,7 @@ h2 { font-size: clamp(1.9rem, 1.2rem + 2.3vw, 3.2rem); }
   .vid-ctrls .sound-btn { height: 30px; font-size: .66rem; padding: 0 .7rem 0 .6rem; gap: .3rem; }
   .vid-ctrls svg { width: 14px; height: 14px; }
 }
+
+/* --- Pilules du hero : changent de métier en fondu --- */
+.float-tag { transition: transform .2s linear, opacity .35s ease, filter .35s ease; white-space: nowrap; }
+.float-tag.swap { opacity: 0; filter: blur(4px); }

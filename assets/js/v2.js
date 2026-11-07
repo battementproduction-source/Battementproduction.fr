@@ -126,6 +126,34 @@ if (title) {
   if (bg) v.addEventListener('timeupdate', () => { if (mq.matches && Math.abs(bg.currentTime - v.currentTime) > .3) bg.currentTime = v.currentTime; });
 })();
 
+/* ---------- Pilules du hero : chacune change de métier à tour de rôle ---------- */
+(() => {
+  const pills = $$('.hero-stage .float-tag');
+  if (!pills.length || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  // Liste des métiers affichés dans les pilules (indépendante du portfolio)
+  const METIERS = [
+    ['Clip', '#FF4D8D'], ['Captation', '#F3CD44'], ['Réseaux sociaux', '#38BDF8'],
+    ['Court-métrage', '#A78BFA'], ['Aftermovie', '#FF8A3D'], ['Vidéos de scène', '#34D399'],
+    ['Teaser & promo', '#FF5A4E'], ['Making-of', '#B8F05A'], ['Direction artistique', '#E879F9'],
+    ['Réalisation', '#2DD4BF'],
+  ];
+  const shown = pills.map(p => p.textContent.replace('●', '').trim());
+  let next = 0;
+  const swap = k => {
+    const p = pills[k];
+    let m; do { m = METIERS[next++ % METIERS.length]; } while (shown.includes(m[0]));
+    p.classList.add('swap');
+    setTimeout(() => {
+      shown[k] = m[0];
+      p.textContent = '● ' + m[0];
+      p.style.setProperty('--c', m[1]);
+      p.classList.remove('swap');
+    }, 350);
+  };
+  let k = 0;
+  setInterval(() => { if (!document.hidden) { swap(k); k = (k + 1) % pills.length; } }, 1800); // une pilule à la fois
+})();
+
 /* ---------- Cadre vidéo du hero : zoom au scroll + tags en parallaxe ---------- */
 const frame = $('.hero-frame');
 const tags = $$('.float-tag');
