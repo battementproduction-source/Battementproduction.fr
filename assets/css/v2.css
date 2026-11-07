@@ -1175,3 +1175,8 @@ h2 { font-size: clamp(1.9rem, 1.2rem + 2.3vw, 3.2rem); }
   .cal-slots { display: flex; flex-direction: column; }
   .slot-list { grid-template-columns: repeat(3, 1fr); width: 100%; }
 }
+
+/* --- Vidéo de présentation sur téléphone : cadre vertical (vidéo hero-mobile en 9:16) --- */
+@media (max-width: 760px) {
+  .hero-frame { aspect-ratio: 9/16; max-width: 420px; }
+}
