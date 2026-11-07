@@ -1031,7 +1031,7 @@ h2 { font-size: clamp(1.9rem, 1.2rem + 2.3vw, 3.2rem); }
 .type b { margin-bottom: .1rem; }
 .stepper-note { font-size: .7rem; margin-top: .35rem; }
 .cfg-foot { margin-top: auto; padding-top: 1rem; }
-.progress { grid-template-columns: repeat(5, 1fr); }
+.progress { grid-template-columns: repeat(6, 1fr); }
 @media (max-width: 760px) { .cfg-pair { grid-template-columns: 1fr; } }
 
 /* --- Devis : visuel neutre tant que rien n'est choisi --- */
