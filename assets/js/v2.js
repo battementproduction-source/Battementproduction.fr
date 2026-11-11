@@ -23,6 +23,7 @@ const TYPES = {
 /* ---------- Projets (à déplacer ensuite dans projects-data.json) ---------- */
 const PROJETS = [
   // Ordre d'affichage (validé par Elias)
+  { id: 'cetras', title: 'Cetras', client: 'Publicité produit · lunettes de luminothérapie', types: ['promo'], img: 'cetras', video: 'cetras/pub-cetras.mp4' },
   { id: 'pape-lourdes', title: 'La venue du Pape à Lourdes', client: 'Bernadette de Lourdes · France TV', types: ['scene', 'captation'], img: 'pape', video: 'pape-lourdes/intro.mp4' },
   { id: 'grands-discours', title: 'Aux Grands Maux les Grands Discours', client: 'Agents Doubles Productions France', types: ['promo', 'social'], img: 'grands-discours' },
   { id: 'festival-europe2', title: 'Festival Europe 2', client: 'Europe 2 · CSTAR', types: ['scene'], img: 'europe2', video: 'festival-europe2/INTRO-FINAL.mp4' },

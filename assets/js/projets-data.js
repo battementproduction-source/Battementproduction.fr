@@ -12,6 +12,20 @@ const V = 'assets/images/projects/'; // vidéos des projets
 const G = 'assets/img/galerie/';
 
 const DETAILS = {
+  'cetras': {
+    year: '2026',
+    intro: "Une publicité pour les lunettes de luminothérapie Cetras, autour d'une promesse simple : bien dormir, ça commence le matin. J'ai tourné et monté le film, en y intégrant de la 3D et du motion design pour mettre le produit en valeur.",
+    role: [
+      { title: 'Tournage', items: ['Tournage de la publicité.', 'Conseils sur la mise en scène de la vidéo.'] },
+      { title: 'Post-production', items: ['Montage du film.', 'Intégration du produit en 3D et motion design.', 'Choix de la direction musicale.'] },
+      { title: 'Identité', items: ['Animation du logo Cetras.'] },
+    ],
+    media: [
+      { t: 'video', title: 'La publicité Cetras', src: V + 'cetras/pub-cetras.mp4', thumb: G + 'cetras/pub-thumb.jpg' },
+      { t: 'image', title: 'Animation du logo', src: G + 'cetras/logo-cetras.jpg' },
+    ],
+  },
+
   'pape-lourdes': {
     year: '2026',
     intro: "À l'occasion de la venue du Pape en France, la comédie musicale Bernadette de Lourdes s'est jouée à Lourdes devant un public exceptionnel. J'ai conçu les vidéos projetées pendant le show, diffusées sur France TV, et filmé l'événement de l'intérieur.",
