@@ -1203,3 +1203,6 @@ h2 { font-size: clamp(1.9rem, 1.2rem + 2.3vw, 3.2rem); }
 /* --- Pilules du hero : changent de métier en fondu --- */
 .float-tag { transition: transform .2s linear, opacity .35s ease, filter .35s ease; white-space: nowrap; }
 .float-tag.swap { opacity: 0; filter: blur(4px); }
+
+/* Logos foncés (ex. Cetras) : petit fond clair pour rester lisibles sur le noir */
+.logo-tile img.on-light { background: #fff; padding: 7px 10px; box-sizing: content-box; }
