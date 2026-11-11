@@ -127,6 +127,18 @@ if (title) {
   if (bg) v.addEventListener('timeupdate', () => { if (mq.matches && Math.abs(bg.currentTime - v.currentTime) > .3) bg.currentTime = v.currentTime; });
 })();
 
+/* ---------- Mini vidéo dans le titre : démarrage fiable sur iPhone ---------- */
+(() => {
+  const c = $('.chip-video video');
+  if (!c) return;
+  c.muted = true; c.defaultMuted = true; c.playsInline = true;
+  const go = () => { if (c.paused) c.play().catch(() => {}); };
+  go();
+  ['loadeddata', 'canplay'].forEach(ev => c.addEventListener(ev, go));
+  const kick = () => { go(); if (!c.paused) ['touchstart', 'scroll', 'click'].forEach(ev => removeEventListener(ev, kick)); };
+  ['touchstart', 'scroll', 'click'].forEach(ev => addEventListener(ev, kick, { passive: true }));
+})();
+
 /* ---------- Pilules du hero : chacune change de métier à tour de rôle ---------- */
 (() => {
   const pills = $$('.hero-stage .float-tag');

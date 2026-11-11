@@ -22,7 +22,7 @@ const DETAILS = {
     ],
     media: [
       { t: 'video', title: 'La publicité Cetras', src: V + 'cetras/pub-cetras.mp4', thumb: G + 'cetras/pub-thumb.jpg' },
-      { t: 'image', title: 'Animation du logo', src: G + 'cetras/logo-cetras.jpg' },
+      { t: 'video', title: 'Animation du logo', src: V + 'cetras/animation-logo.mp4', thumb: G + 'cetras/logo-cetras.jpg' },
     ],
   },
 
