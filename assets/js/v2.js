@@ -26,7 +26,7 @@ const PROJETS = [
   { id: 'pape-lourdes', title: 'La venue du Pape à Lourdes', client: 'Bernadette de Lourdes · France TV', types: ['scene', 'captation'], img: 'pape', video: 'pape-lourdes/intro.mp4' },
   { id: 'grands-discours', title: 'Aux Grands Maux les Grands Discours', client: 'Agents Doubles Productions France', types: ['promo', 'social'], img: 'grands-discours' },
   { id: 'festival-europe2', title: 'Festival Europe 2', client: 'Europe 2 · CSTAR', types: ['scene'], img: 'europe2', video: 'festival-europe2/INTRO-FINAL.mp4' },
-  { id: 'viva-fuego', title: 'Viva Fuego Festival', client: 'Radio Fuego', types: ['scene', 'aftermovie'], img: 'viva-fuego', video: 'viva-fuego-festival/INTRO DU SHOW.mp4' },
+  { id: 'viva-fuego', title: 'Viva Fuego Festival', client: 'Radio Fuego', types: ['scene', 'aftermovie'], img: 'viva-fuego-trailer', video: 'viva-fuego-festival/INTRO DU SHOW.mp4' },
   { id: 'pieces-jaunes', title: "Pièces Jaunes : Les P'tits Soleils", client: 'Opération Pièces Jaunes', types: ['coulisses'], img: 'pieces-jaunes', video: 'pieces-jaunes/PJ-makingof.mp4', v: true },
   { id: 'radio-fuego', title: 'Radio Fuego', client: 'Radio Fuego', types: ['da', 'social'], img: 'radio-fuego', video: 'radio-fuego/presentation.mp4' },
   { id: 'david-ban', title: 'David Bán Big Party', client: 'Tournée en Chine', types: ['scene', 'aftermovie'], img: 'david-ban' },
@@ -223,13 +223,15 @@ if (cursor && matchMedia('(hover: hover)').matches) {
 /* =====================================================================
    DEVIS À LA CARTE
 ===================================================================== */
+// Images du devis : photos libres de droits (Unsplash), pas nos créations — dossier assets/img/devis/
+const DEVIS_IMG = 'assets/img/devis/';
 const DEVIS_TYPES = [
-  { id: 'clip',   label: 'Clip musical',            sub: 'Réalisation, tournage, montage',      img: 'mots-bleus',     acc: '#FF4D8D', acc2: '#8B5CF6' },
-  { id: 'court',  label: 'Court-métrage',           sub: 'Fiction, de l’écriture au final cut', img: 'loop',           acc: '#A78BFA', acc2: '#38BDF8' },
-  { id: 'event',  label: 'Captation & aftermovie',  sub: 'Concerts, festivals, spectacles',     img: 'pop-session',    acc: '#F3CD44', acc2: '#FF8A3D' },
-  { id: 'promo',  label: 'Film promo & teaser',     sub: 'Marque, spectacle, lancement',        img: 'little-italy',   acc: '#FF5A4E', acc2: '#F3CD44' },
-  { id: 'social', label: 'Contenus réseaux',        sub: 'Reels, TikTok, formats courts',       img: 'radio-fuego',    acc: '#38BDF8', acc2: '#34D399' },
-  { id: 'scene',  label: 'Vidéos de scène',         sub: 'Écrans live, intros de show, motion', img: 'viva-fuego',     acc: '#34D399', acc2: '#F3CD44' },
+  { id: 'clip',   label: 'Clip musical',            sub: 'Réalisation, tournage, montage',      img: 'clip',   acc: '#FF4D8D', acc2: '#8B5CF6' },
+  { id: 'court',  label: 'Court-métrage',           sub: 'Fiction, de l’écriture au final cut', img: 'court',  acc: '#A78BFA', acc2: '#38BDF8' },
+  { id: 'event',  label: 'Captation & aftermovie',  sub: 'Concerts, festivals, spectacles',     img: 'event',  acc: '#F3CD44', acc2: '#FF8A3D' },
+  { id: 'promo',  label: 'Film promo & teaser',     sub: 'Marque, spectacle, lancement',        img: 'promo',  acc: '#FF5A4E', acc2: '#F3CD44' },
+  { id: 'social', label: 'Contenus réseaux',        sub: 'Reels, TikTok, formats courts',       img: 'social', acc: '#38BDF8', acc2: '#34D399' },
+  { id: 'scene',  label: 'Vidéos de scène',         sub: 'Écrans live, intros de show, motion', img: 'scene',  acc: '#34D399', acc2: '#F3CD44' },
 ];
 const OPTIONS = ['Déclinaisons Reels 9:16', 'Format carré 1:1', 'Sous-titres', 'Musique sous licence', 'Livraison express'];
 const DUREES = ['< 1 min', '1 – 3 min', '3 – 10 min', '10 min +'];
@@ -245,7 +247,7 @@ if (devis) {
 
   typesEl.innerHTML = DEVIS_TYPES.map(t => `
     <button class="type" data-id="${t.id}" style="--c:${t.acc}">
-      <div class="thumb"><img src="${IMG + t.img}.jpg" alt=""></div>
+      <div class="thumb"><img src="${DEVIS_IMG + t.img}.jpg" alt=""></div>
       <span class="radio"></span>
       <b>${t.label}</b><small>${t.sub}</small>
     </button>`).join('');
@@ -274,7 +276,7 @@ if (devis) {
     // Visuel du récap : neutre au départ, puis l'exemple du type choisi (fondu enchaîné)
     placeholder.classList.toggle('out', !!t);
     if (t) {
-      const src = IMG + t.img + '.jpg';
+      const src = DEVIS_IMG + t.img + '.jpg';
       if (!currentImg || !currentImg.src.endsWith(src)) {
         const n = new Image(); n.src = src; n.alt = ''; n.className = 'sum-img out';
         sumImgs.insertBefore(n, $('#sum-tag'));

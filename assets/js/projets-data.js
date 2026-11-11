@@ -62,12 +62,12 @@ const DETAILS = {
       { title: 'Contenus & communication', items: ["Aftermovie de la soirée et montage des interviews d'artistes.", "Supervision de l'équipe communication et du plan de promotion de l'événement."] },
     ],
     media: [
+      { t: 'link', title: 'Trailer du festival', url: 'https://www.instagram.com/p/DZDSA0DN05a/', thumb: G + 'viva-fuego/trailer-thumb.jpg' },
       { t: 'video', title: "Vidéo d'ouverture — 1re partie", src: V + 'viva-fuego-festival/INTRO DU SHOW.mp4', thumb: G + 'viva-fuego/intro1-thumb.jpg' },
       { t: 'video', title: "Vidéo d'ouverture — 2e partie", src: V + 'viva-fuego-festival/Intro Partie 2.mp4', thumb: G + 'viva-fuego/intro2-thumb.jpg' },
       { t: 'video', title: 'Hommage à Willy William', src: V + 'viva-fuego-festival/Willy William Hommage.mp4', thumb: G + 'viva-fuego/WW-thumb.jpg' },
       { t: 'video', title: 'Interlude promo DAB+', src: V + 'viva-fuego-festival/Vidéo Promo DAB+.mp4', thumb: G + 'viva-fuego/DAB+-thumb.jpg' },
       { t: 'video', title: "Vidéo d'entrée d'un artiste", src: V + 'viva-fuego-festival/DR.Yaro Intro.mp4', thumb: G + 'viva-fuego/thumb-video-artiste.jpg' },
-      { t: 'link', title: 'Trailer du festival', url: 'https://www.instagram.com/p/DZDSA0DN05a/', thumb: G + 'viva-fuego/trailer-thumb.jpg' },
       { t: 'link', title: 'Aftermovie', url: 'https://www.instagram.com/p/DZvKd7ZNVnV/', thumb: G + 'viva-fuego/aftermovie-thumb.jpg' },
       { t: 'image', title: 'Affiche du festival', src: G + 'viva-fuego/afficheVVF.jpg' },
       { t: 'image', title: 'Affiche avec les artistes', src: G + 'viva-fuego/Fresque-VVF-artistes.jpg' },
