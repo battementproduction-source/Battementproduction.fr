@@ -169,7 +169,7 @@ const DETAILS = {
   },
 
   'Loop': {
-    intro: "Après le prix du public du Festival du cinéma de Taverny, j'ai écrit mon 4e court-métrage. En deux parties, Loop suit Eliott, la vingtaine, soudain confronté à des événements inexplicables : pour s'en sortir, il devra affronter ses démons intérieurs.",
+    intro: "Après le prix du public du Festival du Cinéma de Taverny, j'ai écrit mon 4e court-métrage. En deux parties, Loop suit Eliott, la vingtaine, soudain confronté à des événements inexplicables : pour s'en sortir, il devra affronter ses démons intérieurs.",
     role: [
       { title: 'Écriture & réalisation', items: ["Écriture du scénario en deux parties.", 'Mise en scène et direction artistique, de la conception au film fini.'] },
       { title: 'Tournage', items: ['Prises de vues de toutes les séquences.', "Double casquette : réalisateur et acteur principal."] },

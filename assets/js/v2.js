@@ -386,6 +386,8 @@ if (devis) {
 /* =====================================================================
    PAGE PORTFOLIO — filtres + recherche
 ===================================================================== */
+// Nombre de projets affiché en haut du portfolio : calculé automatiquement
+const pfTotal = $('#pf-total'); if (pfTotal) pfTotal.textContent = PROJETS.length;
 const grid = $('#pf-grid');
 if (grid) {
   const chips = $('#f-chips');
