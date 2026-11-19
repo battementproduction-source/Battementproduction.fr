@@ -112,7 +112,6 @@ const DETAILS = {
       { title: 'Stratégie', items: ['Pilotage de la stratégie de contenu et management de l’équipe communication.'] },
     ],
     media: [
-      { t: 'video', title: 'Récap séminaire corporate', src: V + 'radio-fuego/convention-fuego.mp4', thumb: G + 'radio-fuego/thumb-convention-fuego.jpg' },
       { t: 'link', title: 'Application Radio Fuego', url: 'https://www.instagram.com/p/DXaBWvTAiNv/', thumb: G + 'radio-fuego/appliRF-thumb.jpg' },
       { t: 'link', title: 'Publicité Radio Player', url: 'https://www.instagram.com/reels/DWOXwUWgVDh/', thumb: G + 'radio-fuego/radioplayer.jpg' },
       { t: 'link', title: 'Vidéo incarnée pour les auditeurs', url: 'https://www.instagram.com/reels/DVapYsbABc9/', thumb: G + 'radio-fuego/auditeurs-thumb.jpg' },
@@ -123,6 +122,7 @@ const DETAILS = {
       { t: 'link', title: 'Concours Rosalía', url: 'https://www.instagram.com/reel/DUh9Am6gU3I/', thumb: G + 'radio-fuego/rosalia.jpg' },
       { t: 'link', title: 'Concours Calema', url: 'https://www.instagram.com/reel/DUPtqTkDd5r/', thumb: G + 'radio-fuego/calema.jpg' },
       { t: 'link', title: 'Fuego Zap', url: 'https://www.instagram.com/reel/DTpW6l8DdCc/', thumb: G + 'radio-fuego/Fuego-Zap.jpg' },
+      { t: 'video', title: 'Récap séminaire corporate', src: V + 'radio-fuego/convention-fuego.mp4', thumb: G + 'radio-fuego/thumb-convention-fuego.jpg' },
     ],
   },
 
