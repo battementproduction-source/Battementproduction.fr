@@ -80,6 +80,33 @@ addEventListener('scroll', () => nav && nav.classList.toggle('scrolled', scrollY
 $('.nav-burger')?.addEventListener('click', () => document.body.classList.toggle('menu-open'));
 $$('.mobile-menu a').forEach(a => a.addEventListener('click', () => document.body.classList.remove('menu-open')));
 
+/* ---------- Arrivée depuis une autre page avec une ancre (ex. portfolio → index.html#rdv) :
+   la page change de hauteur pendant le chargement (vidéo, images, devis, calendrier),
+   donc on recale directement sur la section jusqu'à ce que tout soit stable. ---------- */
+(() => {
+  const id = decodeURIComponent(location.hash.slice(1));
+  const target = id && document.getElementById(id);
+  if (!target) return;
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  const html = document.documentElement;
+  let stop = false;
+  const cancel = () => { stop = true; };
+  ['wheel', 'touchstart', 'keydown'].forEach(ev => addEventListener(ev, cancel, { once: true, passive: true }));
+  const jump = () => {
+    if (stop) return;
+    html.style.scrollBehavior = 'auto';
+    const y = target.getBoundingClientRect().top + scrollY - (parseFloat(getComputedStyle(target).scrollMarginTop) || 0);
+    scrollTo(0, y);
+    html.style.scrollBehavior = '';
+  };
+  jump();
+  requestAnimationFrame(jump);
+  addEventListener('load', jump);
+  document.fonts?.ready.then(jump);
+  [150, 400, 800, 1400, 2200].forEach(t => setTimeout(jump, t));
+  setTimeout(cancel, 2600);
+})();
+
 /* ---------- Apparitions ---------- */
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
 function observeReveal(root = document) { $$('[data-reveal]', root).forEach(el => io.observe(el)); }
