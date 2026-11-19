@@ -29,7 +29,7 @@ const PROJETS = [
   { id: 'festival-europe2', title: 'Festival Europe 2', client: 'Europe 2 · CSTAR', types: ['scene'], img: 'europe2', video: 'festival-europe2/INTRO-FINAL.mp4' },
   { id: 'viva-fuego', title: 'Viva Fuego Festival', client: 'Radio Fuego', types: ['scene', 'aftermovie', 'promo'], img: 'viva-fuego-trailer', video: 'viva-fuego-festival/INTRO DU SHOW.mp4' },
   { id: 'pieces-jaunes', title: "Pièces Jaunes : Les P'tits Soleils", client: 'Opération Pièces Jaunes', types: ['coulisses'], img: 'pieces-jaunes', video: 'pieces-jaunes/PJ-makingof.mp4', v: true },
-  { id: 'radio-fuego', title: 'Radio Fuego', client: 'Radio Fuego', types: ['da', 'social'], img: 'radio-fuego', video: 'radio-fuego/presentation.mp4' },
+  { id: 'radio-fuego', title: 'Radio Fuego', client: 'Radio Fuego', types: ['da', 'social'], img: 'radio-fuego', video: 'radio-fuego/convention-fuego.mp4' },
   { id: 'david-ban', title: 'David Bán Big Party', client: 'Tournée en Chine', types: ['scene', 'aftermovie'], img: 'david-ban' },
   { id: 'bernadette-lourdes', title: 'Bernadette de Lourdes Italie', client: 'Comédie musicale', types: ['coulisses', 'promo'], img: 'bernadette', video: 'bernadette-de-lourdes-IT/Making-of-Trailer(VostFR).mp4' },
   { id: 'pop-session-europe2', title: 'Pop Sessions', client: 'Europe 2 · CSTAR', types: ['captation', 'promo'], img: 'pop-session', video: 'pop-session/Bestof-PopSession.mp4' },
@@ -248,13 +248,15 @@ const DEVIS_TYPES = [
 ];
 const OPTIONS = ['Déclinaisons Reels 9:16', 'Format carré 1:1', 'Sous-titres', 'Musique sous licence', 'Livraison express'];
 const DUREES = ['< 1 min', '1 – 3 min', '3 – 10 min', '10 min +'];
-const EFFETS = ['Aucun', 'Motion 2D', 'Effets 3D', '2D + 3D'];
+const EFFETS = ['Aucun', 'Motion 2D', 'Effets 3D', 'Autre']; // plusieurs choix possibles ; « Aucun » est exclusif ; « Autre » ouvre un champ texte
 const NB_MAX = 20; // au-delà : « 20+ »
 const NEUTRE = { acc: '#F3CD44', acc2: '#D8AD48' }; // couleurs tant que rien n'est choisi
 
 const devis = $('#devis');
 if (devis) {
-  const state = { type: null, nb: 1, duree: null, jours: 1, fx: null, opts: new Set() };
+  const state = { type: null, nb: 1, duree: null, jours: 1, fx: new Set(), fxAutre: '', opts: new Set() };
+  const fxAutreEl = $('#fx-autre');
+  const fxTxt = () => [...state.fx].map(f => f === 'Autre' ? 'Autre' + (state.fxAutre.trim() ? ' : ' + state.fxAutre.trim() : '') : f).join(', ');
   const nbTxt = () => state.nb >= NB_MAX ? `${NB_MAX}+ vidéos` : `${state.nb} vidéo${state.nb > 1 ? 's' : ''}`;
   const typesEl = $('#types'), dureeEl = $('#duree'), optsEl = $('#opts'), fxEl = $('#fx');
 
@@ -279,7 +281,8 @@ if (devis) {
     devis.style.setProperty('--acc2', c.acc2);
     $$('.type', typesEl).forEach(b => b.classList.toggle('on', b.dataset.id === state.type));
     $$('button', dureeEl).forEach(b => b.classList.toggle('on', b.textContent === state.duree));
-    $$('button', fxEl).forEach(b => b.classList.toggle('on', b.textContent === state.fx));
+    $$('button', fxEl).forEach(b => b.classList.toggle('on', state.fx.has(b.textContent)));
+    fxAutreEl.hidden = !state.fx.has('Autre');
     $$('button', optsEl).forEach(b => b.classList.toggle('on', state.opts.has(b.textContent)));
     $('#nb').textContent = state.nb >= NB_MAX ? NB_MAX + '+' : state.nb;
     $('#nb-note').textContent = state.nb >= NB_MAX ? `${NB_MAX} vidéos ou plus.` : `${state.nb} vidéo${state.nb > 1 ? 's' : ''} à livrer.`;
@@ -307,15 +310,23 @@ if (devis) {
       <li><span>Vidéos</span><span>${nbTxt()}</span></li>
       <li><span>Durée par vidéo</span><span>${state.duree || '—'}</span></li>
       <li><span>Tournage</span><span>${state.jours === 0 ? 'Post-prod seule' : state.jours + ' jour' + (state.jours > 1 ? 's' : '')}</span></li>
-      <li><span>Effets</span><span>${state.fx || '—'}</span></li>
+      <li><span>Effets</span><span>${state.fx.size ? fxTxt() : '—'}</span></li>
       <li><span>Options</span><span>${state.opts.size ? [...state.opts].join(', ') : '—'}</span></li>`;
-    const done = [!!t, !!t, !!state.duree, !!t, !!state.fx, state.opts.size > 0];
+    const done = [!!t, !!t, !!state.duree, !!t, state.fx.size > 0, state.opts.size > 0];
     $$('.progress i').forEach((i, k) => i.classList.toggle('on', done[k]));
     $$('.cfg-step').forEach((s, k) => s.classList.toggle('done', !!done[k]));
     $('#sum-steps').textContent = `${done.filter(Boolean).length} sur 6`;
   }
 
-  fxEl.addEventListener('click', e => { if (e.target.matches('button')) { state.fx = e.target.textContent; render(); } });
+  fxEl.addEventListener('click', e => {
+    if (!e.target.matches('button')) return;
+    const f = e.target.textContent;
+    if (f === 'Aucun') state.fx = new Set(state.fx.has('Aucun') ? [] : ['Aucun']);
+    else { state.fx.delete('Aucun'); state.fx.has(f) ? state.fx.delete(f) : state.fx.add(f); }
+    render();
+    if (f === 'Autre' && state.fx.has('Autre')) fxAutreEl.focus();
+  });
+  fxAutreEl.addEventListener('input', () => { state.fxAutre = fxAutreEl.value; render(); });
   typesEl.addEventListener('click', e => { const b = e.target.closest('.type'); if (b) { state.type = b.dataset.id; render(); } });
   dureeEl.addEventListener('click', e => { if (e.target.matches('button')) { state.duree = e.target.textContent; render(); } });
   optsEl.addEventListener('click', e => { if (e.target.matches('button')) { const o = e.target.textContent; state.opts.has(o) ? state.opts.delete(o) : state.opts.add(o); render(); } });
@@ -360,7 +371,7 @@ if (devis) {
       `Nombre de vidéos : ${nbTxt()}`,
       `Durée de chaque vidéo : ${state.duree || 'non précisée'}`,
       `Tournage : ${state.jours === 0 ? 'aucun (post-production seule)' : state.jours + ' jour(s)'}`,
-      `Effets visuels : ${state.fx || 'non précisé'}`,
+      `Effets visuels : ${state.fx.size ? fxTxt() : 'non précisé'}`,
       `Options : ${state.opts.size ? [...state.opts].join(', ') : 'aucune'}`,
       '',
       'Message du client :',

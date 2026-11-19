@@ -1206,3 +1206,8 @@ h2 { font-size: clamp(1.9rem, 1.2rem + 2.3vw, 3.2rem); }
 
 /* Logos foncés (ex. Cetras) : petit fond clair pour rester lisibles sur le noir */
 .logo-tile img.on-light { background: #fff; padding: 7px 10px; box-sizing: content-box; }
+
+/* --- Devis : champ « Autre » des effets visuels --- */
+.fx-autre { display: block; width: 100%; max-width: 360px; margin-top: .55rem; padding: .6rem .9rem; border-radius: 12px; border: 1px solid var(--line-2); background: rgba(255,255,255,.04); color: var(--cream); font: inherit; font-size: .85rem; outline: none; transition: border-color .25s; }
+.fx-autre:focus { border-color: var(--acc); }
+.fx-autre::placeholder { color: var(--muted); }

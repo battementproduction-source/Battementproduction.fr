@@ -112,7 +112,6 @@ const DETAILS = {
       { title: 'Stratégie', items: ['Pilotage de la stratégie de contenu et management de l’équipe communication.'] },
     ],
     media: [
-      { t: 'video', title: 'Vidéo de présentation', src: V + 'radio-fuego/presentation.mp4', thumb: G + 'radio-fuego/presentation-thumb.jpg' },
       { t: 'video', title: 'Récap séminaire corporate', src: V + 'radio-fuego/convention-fuego.mp4', thumb: G + 'radio-fuego/thumb-convention-fuego.jpg' },
       { t: 'link', title: 'Application Radio Fuego', url: 'https://www.instagram.com/p/DXaBWvTAiNv/', thumb: G + 'radio-fuego/appliRF-thumb.jpg' },
       { t: 'link', title: 'Publicité Radio Player', url: 'https://www.instagram.com/reels/DWOXwUWgVDh/', thumb: G + 'radio-fuego/radioplayer.jpg' },
