@@ -124,7 +124,6 @@ const DETAILS = {
       { t: 'link', title: 'Concours Rosalía', url: 'https://www.instagram.com/reel/DUh9Am6gU3I/', thumb: G + 'radio-fuego/rosalia.jpg' },
       { t: 'link', title: 'Concours Calema', url: 'https://www.instagram.com/reel/DUPtqTkDd5r/', thumb: G + 'radio-fuego/calema.jpg' },
       { t: 'link', title: 'Fuego Zap', url: 'https://www.instagram.com/reel/DTpW6l8DdCc/', thumb: G + 'radio-fuego/Fuego-Zap.jpg' },
-      { t: 'link', title: 'Le site de Radio Fuego', url: 'https://radiofuego.fr' },
     ],
   },
 
